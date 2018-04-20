@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGB.Data", "NGB.Data\NGB.Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGB.Domain", "NGB.Domain\NGB.Domain.csproj", "{3BC2794C-D450-4BD6-BAEF-A7357E2A5E7E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "App", "App\App.csproj", "{13523C7E-3E72-4472-804D-1DF71916C400}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGB.App", "App\NGB.App.csproj", "{13523C7E-3E72-4472-804D-1DF71916C400}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

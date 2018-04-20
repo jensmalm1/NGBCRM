@@ -26,7 +26,7 @@ namespace NGB.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("EMail");
+                    b.Property<string>("Email");
 
                     b.Property<string>("FirstName");
 
@@ -34,7 +34,7 @@ namespace NGB.Data.Migrations
 
                     b.Property<int>("PreferedContactType");
 
-                    b.Property<string>("SurName");
+                    b.Property<string>("Surname");
 
                     b.HasKey("Id");
 

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NGB.FrontEnd;
+using NGB.Domain;
 
 namespace NGB.App
 {
@@ -8,7 +10,12 @@ namespace NGB.App
     {
         public void Run()
         {
-            Console.WriteLine("NG Bönan är Bästa KaffeBönan!");
+            UserInterface userInterface = new ConsoleInterface();
+            var handler = new CustomerHandler();
+
+            Customer customer = userInterface.GetNewCustomerFromUser();
+            handler.AddNewCustomer(customer);
+
         }
     }
 }

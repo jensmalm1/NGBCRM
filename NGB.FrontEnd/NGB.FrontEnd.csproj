@@ -1,14 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\NGB.Data\NGB.Data.csproj" />
     <ProjectReference Include="..\NGB.Domain\NGB.Domain.csproj" />
-    <ProjectReference Include="..\NGB.FrontEnd\NGB.FrontEnd.csproj" />
   </ItemGroup>
 
 </Project>

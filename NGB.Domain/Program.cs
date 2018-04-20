@@ -23,6 +23,7 @@ namespace NGB.Domain
         {
             Console.WriteLine("Hello World!");
             Console.WriteLine("Hopp!");
+            Console.WriteLine("Gummi");
         }
     }
 }

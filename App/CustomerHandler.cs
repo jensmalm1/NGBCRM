@@ -14,7 +14,7 @@ namespace NGB.App
             {
                 context.Customer.Add(customer);
                 context.SaveChanges();
-            }
+            } 
         }
 
         public void ListAllCustomers()

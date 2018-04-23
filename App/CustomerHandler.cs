@@ -6,7 +6,7 @@ using NGB.Domain;
 
 namespace NGB.App
 {
-    class CustomerHandler
+    public class CustomerHandler
     {
         public void AddNewCustomer(Customer customer)
         {

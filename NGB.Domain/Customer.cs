@@ -21,4 +21,12 @@ namespace NGB.Domain
         Email,
         Letter
     }
+
+
+    public enum SearchableCustomerAttribute
+    {
+        CompanyName,
+        FirstName,
+        LastName
+    }
 }

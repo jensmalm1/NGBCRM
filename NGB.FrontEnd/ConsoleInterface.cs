@@ -92,6 +92,18 @@ namespace NGB.FrontEnd
 
         }
 
+<<<<<<< HEAD
+
+        public ContactEvent CreateContactEvent()
+        {
+            var contactEvent = new ContactEvent();
+            Console.Write("Ange rubrik för kontakthändelse: ");
+            contactEvent.SummaryContent = Console.ReadLine();
+            Console.Write("Beskriv kontakten: ");
+            contactEvent.FullContent = Console.ReadLine();
+            contactEvent.DateTime = DateTime.Now;
+            return contactEvent;
+=======
         public void DisplaySalespersonMenu()
         {
             Console.WriteLine("Säljmeny");
@@ -110,6 +122,7 @@ namespace NGB.FrontEnd
                 if (validation.Validate(StringType.MenuSelection, input))
                     return input;
             }
+>>>>>>> 36d2052778b63a45ca081f8c3b687c330651aaa7
         }
     }
 }

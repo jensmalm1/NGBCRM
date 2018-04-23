@@ -37,5 +37,13 @@ namespace NGB.App
             return null;
 
         }
+
+        public Customer UpdateContactLogForCustomer()
+        {
+           Customer customer= GetCustomerFromUser();
+            //merge these later...
+            return customer;
+
+        }
     }
 }

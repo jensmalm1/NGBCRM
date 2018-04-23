@@ -7,7 +7,7 @@ namespace NGB.FrontEnd
 {
     public enum StringType
     {
-        Epost,
+        Email,
         PhoneNumber
     }
     class Validate
@@ -17,11 +17,11 @@ namespace NGB.FrontEnd
             var isValid = false;
             switch (stringType)
             {
-                case StringType.Epost:
+                case StringType.Email:
                     isValid = ValidateEmail(stringToValidate);
                     break;
                 case StringType.PhoneNumber:
-                    isValid = ValidatePhoneNo(stringToValidate);
+                    isValid = ValidatePhoneNumber(stringToValidate);
                     break;
                 default:
                     break;
@@ -29,7 +29,7 @@ namespace NGB.FrontEnd
             return isValid;
         }
 
-        public bool ValidatePhoneNo(string input)
+        public bool ValidatePhoneNumber(string input)
         {
             return Regex.IsMatch(input, @"^\d{2,10}-?\d{1,8}$");
         }

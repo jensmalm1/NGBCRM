@@ -18,6 +18,7 @@ namespace NGB.App
             }
         }
 
+
         public List<Customer> ListAllCustomers()
         {
             var customerlist = new List<Customer>();

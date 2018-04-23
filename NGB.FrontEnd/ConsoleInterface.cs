@@ -36,11 +36,6 @@ namespace NGB.FrontEnd
             throw new NotImplementedException();
         }
 
-        public void DisplayCustomerList(List<Customer> customerList)
-        {
-            throw new NotImplementedException();
-        }
-
         public Customer SelectCustomer(List<Customer> customerList)
         {
             throw new NotImplementedException();

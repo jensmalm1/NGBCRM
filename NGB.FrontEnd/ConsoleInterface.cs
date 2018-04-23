@@ -17,6 +17,15 @@ namespace NGB.FrontEnd
 
         }
 
+        public void DisplayCustomerList(List<Customer> customerList)
+        {
+            Console.WriteLine("Kundlista");
+            foreach (var customer in customerList)
+            {
+                Console.WriteLine(@$"{customer.CompanyName,-10} {customer.FirstName, -10} {customer.Lastname} {customer.Email, -10} {customer.PhoneNumber, -10}");
+            }
+        }
+
         public Customer GetNewCustomerFromUser()
         {
             var customer = new Customer();

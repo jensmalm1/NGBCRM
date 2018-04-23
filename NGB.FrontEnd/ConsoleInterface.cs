@@ -11,17 +11,6 @@ namespace NGB.FrontEnd
     {
         Validation validation = new Validation();
 
-        public ContactEvent CreateNewContactEvent()
-        {
-
-            var contactEvent=new ContactEvent();
-            Console.WriteLine("Vilken kund vill du skapa kontaktlog för? Ange Efternamn");
-            return = Console.ReadLine();
-            
-            
-
-        }
-
         public void DisplayCustomer(Customer customer)
         {
             var customers = new List<Customer>();
@@ -92,7 +81,6 @@ namespace NGB.FrontEnd
 
         }
 
-<<<<<<< HEAD
 
         public ContactEvent CreateContactEvent()
         {
@@ -103,7 +91,8 @@ namespace NGB.FrontEnd
             contactEvent.FullContent = Console.ReadLine();
             contactEvent.DateTime = DateTime.Now;
             return contactEvent;
-=======
+        }
+
         public void DisplaySalespersonMenu()
         {
             Console.WriteLine("Säljmeny");
@@ -122,7 +111,6 @@ namespace NGB.FrontEnd
                 if (validation.Validate(StringType.MenuSelection, input))
                     return input;
             }
->>>>>>> 36d2052778b63a45ca081f8c3b687c330651aaa7
         }
     }
 }

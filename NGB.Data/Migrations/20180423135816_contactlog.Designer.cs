@@ -12,9 +12,10 @@ using System;
 namespace NGB.Data.Migrations
 {
     [DbContext(typeof(BeanContext))]
-    partial class BeanContextModelSnapshot : ModelSnapshot
+    [Migration("20180423135816_contactlog")]
+    partial class contactlog
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

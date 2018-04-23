@@ -14,6 +14,7 @@ namespace NGB.FrontEnd
         void DisplayCustomer(Customer customer);
         void DisplaySalespersonMenu();
         string GetMenuSelection();
+        ContactEvent CreateContactEvent();
     }
 
 }

@@ -12,7 +12,8 @@ namespace NGB.FrontEnd
 
             var contactEvent=new ContactEvent();
             Console.WriteLine("Vilken kund vill du skapa kontaktlog för? Ange Efternamn");
-            string customerName = Console.ReadLine();
+            return = Console.ReadLine();
+            
             
 
         }

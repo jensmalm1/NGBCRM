@@ -22,21 +22,27 @@ namespace NGB.App
 
         public List<Customer> ListAllCustomers()
         {
-            var customerlist = new List<Customer>();
+            var customerList = new List<Customer>();
 
             using (var context = new BeanContext())
             {
-                customerlist = context.Customer
-                    .Include(c=>c.ContactLog)
+                customerList = context.Customer
+                    .Include(c=>c.ContactEvents)
                     .ToList();
             }
-            return customerlist;
+            return customerList;
 
         }
 
         public List<Customer> FindCustomersByCompanyName(string companyName)
         {
             throw new NotImplementedException();
+        }
+
+        public void CreateNewContactEvent(Customer customer)
+        {
+            var
+
         }
     }
 }

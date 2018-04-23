@@ -37,5 +37,10 @@ namespace NGB.App
             return null;
 
         }
+
+        public Customer GetCustomerForAddingEvent(string name)
+        {
+
+        }
     }
 }

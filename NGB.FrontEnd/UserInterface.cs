@@ -12,6 +12,8 @@ namespace NGB.FrontEnd
         void DisplayCustomerList(List<Customer> customerList);
         Customer SelectCustomer(List<Customer> customerList);
         void DisplayCustomer(Customer customer);
+        void DisplaySalespersonMenu();
+        string GetMenuSelection();
     }
 
 }

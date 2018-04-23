@@ -58,14 +58,13 @@ namespace NGB.App
                     customerHandler.AddNewCustomer(userInterface.GetNewCustomerFromUser());
                     break;
             }
-=======
+        }
+
         public Customer UpdateContactLogForCustomer()
         {
            Customer customer= GetCustomerFromUser();
             //merge these later...
             return customer;
-
->>>>>>> 4cd4fe94439954bb509336f07ae0f9cbd8ec9c62
         }
     }
 }

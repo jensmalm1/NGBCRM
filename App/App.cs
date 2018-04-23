@@ -38,8 +38,11 @@ namespace NGB.App
 
         }
 
-        public Customer GetCustomerForAddingEvent(string name)
+        public Customer UpdateContactLogForCustomer()
         {
+           Customer customer= GetCustomerFromUser();
+            //merge these later...
+            return customer;
 
         }
     }

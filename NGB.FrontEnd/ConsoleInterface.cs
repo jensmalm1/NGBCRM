@@ -14,7 +14,7 @@ namespace NGB.FrontEnd
             Console.Write("Skriv förnamn: ");
             customer.FirstName = Console.ReadLine();
             Console.Write("Skriv efternamn: ");
-            customer.Surname = Console.ReadLine();
+            customer.Lastname = Console.ReadLine();
             Console.Write("Skriv epostadress: ");
             customer.Email = Console.ReadLine();
             Console.Write("Ange telefonnummer: ");

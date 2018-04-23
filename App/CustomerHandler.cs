@@ -21,9 +21,14 @@ namespace NGB.App
         {
             var customerlist = new List<Customer>();
 
-
-
-
+            using (var context = new BeanContext())
+            {
+                foreach (var customer in customerlist)
+                {
+                    customerlist.Add(customer);
+                }
+            }
+            
         }
 
     }

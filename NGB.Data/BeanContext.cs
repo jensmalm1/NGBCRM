@@ -9,6 +9,8 @@ namespace NGB.Data
     public class BeanContext : DbContext
     {
         public DbSet<Customer> Customer { get; set; }
+        
+
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

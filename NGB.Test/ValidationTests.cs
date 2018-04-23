@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using NUnit.Framework;
+using NGB.FrontEnd;
 
 namespace NGB.Test
 {
@@ -22,19 +23,31 @@ namespace NGB.Test
         private string badEmail5 = "felixia@-gmail.com";
         private string badEmail6 = ".@epost.nu";
         private string badEmail7 = "mohammed..alhadim@aljazira.uae";
-        private string badEMail8 = "elin.gmail.com";
-
-
-
-
+        private string badEmail8 = "elin.gmail.com";
 
 
 
         [Test]
         public void EmailValidationTest()
         {
-           
-            
+            var v = new Validation();
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail1)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail2)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail3)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail4)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail5)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail6)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail7)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail8)));
+
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, badEmail1)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, badEmail2)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, badEmail3)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, badEmail4)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, badEmail5)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, badEmail6)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, badEmail7)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, badEmail8)));
         }
         
     }

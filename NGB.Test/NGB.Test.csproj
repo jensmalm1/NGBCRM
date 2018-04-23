@@ -10,6 +10,14 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.2.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.2.0" />
+    <PackageReference Include="NUnit" Version="3.10.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\App\NGB.App.csproj" />
+    <ProjectReference Include="..\NGB.Data\NGB.Data.csproj" />
+    <ProjectReference Include="..\NGB.Domain\NGB.Domain.csproj" />
+    <ProjectReference Include="..\NGB.FrontEnd\NGB.FrontEnd.csproj" />
   </ItemGroup>
 
 </Project>

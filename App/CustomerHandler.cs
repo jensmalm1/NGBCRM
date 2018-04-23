@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using NGB.Data;
 using NGB.Domain;
 
 namespace NGB.App
 {
-    class CustomerHandler
+    public class CustomerHandler
     {
         public void AddNewCustomer(Customer customer)
         {
@@ -17,18 +18,18 @@ namespace NGB.App
             } 
         }
 
-        public void ListAllCustomers()
+
+        public List<Customer> ListAllCustomers()
         {
             var customerlist = new List<Customer>();
 
             using (var context = new BeanContext())
             {
-                foreach (var customer in customerlist)
-                {
-                    customerlist.Add(customer);
-                }
+                customerlist = context.Customer
+                    .ToList();
             }
-            
+            return customerlist;
+
         }
 
     }

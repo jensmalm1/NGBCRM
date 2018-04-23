@@ -11,8 +11,12 @@ namespace NGB.FrontEnd
         string GetCompanyNameFromUser();
         void DisplayCustomerList(List<Customer> customerList);
         Customer SelectCustomer(List<Customer> customerList);
+<<<<<<< HEAD
         ContactEvent CreateContactEvent();
 
+=======
+        void DisplayCustomer(Customer customer);
+>>>>>>> 36d2052778b63a45ca081f8c3b687c330651aaa7
     }
 
 }

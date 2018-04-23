@@ -10,7 +10,8 @@ namespace NGB.FrontEnd
         CompanyName,
         PersonName,
         Email,
-        PhoneNumber
+        PhoneNumber,
+        MenuSelection
     }
     public class Validation
     {
@@ -31,13 +32,21 @@ namespace NGB.FrontEnd
                 case StringType.PhoneNumber:
                     isValid = ValidateString(ValidatePhoneNumber, stringToValidate);
                     break;
+                case StringType.MenuSelection:
+                    isValid = ValidateString(ValidateMenuSelection, stringToValidate);
+                    break;
                 default:
                     break;
             }
             return isValid;
         }
 
-        
+        private bool ValidateMenuSelection(string input)
+        {
+            return Regex.IsMatch(input, @"[Qq]|/d+");
+        }
+
+
         private bool ValidateString(Func<string, bool> validate, string stringToValidate)
         {
             if (String.IsNullOrEmpty(stringToValidate))

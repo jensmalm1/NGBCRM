@@ -16,10 +16,11 @@ namespace NGB.App
         {
             customerHandler = new CustomerHandler();
             userInterface = new ConsoleInterface();
-            
-            Customer customer = userInterface.GetNewCustomerFromUser();
-            customerHandler.AddNewCustomer(customer);
 
+            while (true)
+            {
+                SalespersonMenu();
+            }
         }
 
         public Customer GetCustomerFromUser()
@@ -38,7 +39,31 @@ namespace NGB.App
 
         }
 
+<<<<<<< HEAD
         public void UpdateContactLogForCustomer()
+=======
+        public void SalespersonMenu()
+        {
+            userInterface.DisplaySalespersonMenu();
+            string menuSelection = userInterface.GetMenuSelection();
+            switch (menuSelection)
+            {
+                case "1":
+                    UpdateContactLogForCustomer();
+                    break;
+                case "2":
+                    userInterface.DisplayCustomer(GetCustomerFromUser());
+                    break;
+                case "3":
+                    userInterface.DisplayCustomerList(customerHandler.ListAllCustomers());
+                    break;
+                case "4":
+                    customerHandler.AddNewCustomer(userInterface.GetNewCustomerFromUser());
+                    break;
+            }
+=======
+        public Customer UpdateContactLogForCustomer()
+>>>>>>> 36d2052778b63a45ca081f8c3b687c330651aaa7
         {
 
 
@@ -48,6 +73,7 @@ namespace NGB.App
             //merge these later...
             customerHandler.UpdateCustomer(customer);
 
+>>>>>>> 4cd4fe94439954bb509336f07ae0f9cbd8ec9c62
         }
     }
 }

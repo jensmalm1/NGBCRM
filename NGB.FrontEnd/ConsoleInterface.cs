@@ -17,6 +17,25 @@ namespace NGB.FrontEnd
 
         }
 
+        public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetCompanyNameFromUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DisplayCustomerList(List<Customer> customerList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Customer SelectCustomer(List<Customer> customerList)
+        {
+            throw new NotImplementedException();
+        }
         public Customer GetNewCustomerFromUser()
         {
             var customer = new Customer();

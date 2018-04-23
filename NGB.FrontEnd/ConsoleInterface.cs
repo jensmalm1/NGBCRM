@@ -19,6 +19,8 @@ namespace NGB.FrontEnd
             customer.Email = Console.ReadLine();
             Console.Write("Ange telefonnummer: ");
             customer.PhoneNumber = Console.ReadLine();
+            Console.Write("Skriv in företagsnamn");
+            customer.CompanyName = Console.ReadLine();
             customer.PreferedContactType = GetPreferredContactType();
             return customer;
         }

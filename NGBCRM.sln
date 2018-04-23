@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGB.Domain", "NGB.Domain\NG
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGB.App", "App\NGB.App.csproj", "{13523C7E-3E72-4472-804D-1DF71916C400}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGB.FrontEnd", "NGB.FrontEnd\NGB.FrontEnd.csproj", "{83E8AC07-F63C-4CB8-BADF-8833E331CA3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NGB.FrontEnd", "NGB.FrontEnd\NGB.FrontEnd.csproj", "{83E8AC07-F63C-4CB8-BADF-8833E331CA3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NGB.Test", "NGB.Test\NGB.Test.csproj", "{57705884-F339-46CF-BE61-4FB90E829620}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{83E8AC07-F63C-4CB8-BADF-8833E331CA3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E8AC07-F63C-4CB8-BADF-8833E331CA3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{83E8AC07-F63C-4CB8-BADF-8833E331CA3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57705884-F339-46CF-BE61-4FB90E829620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57705884-F339-46CF-BE61-4FB90E829620}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57705884-F339-46CF-BE61-4FB90E829620}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57705884-F339-46CF-BE61-4FB90E829620}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.Text;
 using NGB.Domain;
+using NGB.FrontEnd;
 
 namespace NGB.FrontEnd
 {
+
     public class ConsoleInterface : UserInterface
     {
+        Validation validation = new Validation();
+
         public ContactEvent CreateNewContactEvent()
         {
 
@@ -86,6 +90,26 @@ namespace NGB.FrontEnd
             int answer = Convert.ToInt32(Console.ReadLine()) - 1;
             return (PreferedContactType)Enum.ToObject(typeof(PreferedContactType), answer);
 
+        }
+
+        public void DisplaySalespersonMenu()
+        {
+            Console.WriteLine("Säljmeny");
+            Console.WriteLine("(1) Uppdatera kontaktlogg för kund.");
+            Console.WriteLine("(2) Sök kund.");
+            Console.WriteLine("(3) Visa alla kunder.");
+            Console.WriteLine("(4) Lägg till ny kund.");
+        }
+
+        public string GetMenuSelection()
+        {
+            while (true)
+            {
+                Console.Write("Gör menyval (Q för att avbryta): ");
+                var input = Console.ReadLine();
+                if (validation.Validate(StringType.MenuSelection, input))
+                    return input;
+            }
         }
     }
 }

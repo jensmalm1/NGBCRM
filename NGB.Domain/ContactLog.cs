@@ -4,7 +4,13 @@ using System.Text;
 
 namespace NGB.Domain
 {
-    class ContactLog
+    public class ContactLog
     {
+        public int Id { get; set; }
+        public int CustomerId { get; set; }
+        public DateTime DateTime { get; set; }
+        public string FullContent { get; set; }
+        public string SummaryContent { get; set; }
+
     }
 }

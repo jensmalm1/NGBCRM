@@ -43,7 +43,7 @@ namespace NGB.FrontEnd
 
         private bool ValidateMenuSelection(string input)
         {
-            return Regex.IsMatch(input, @"[Qq]|/d+");
+            return Regex.IsMatch(input, @"(^\d+$|[Qq])");
         }
 
 

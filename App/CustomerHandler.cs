@@ -16,5 +16,15 @@ namespace NGB.App
                 context.SaveChanges();
             }
         }
+
+        public void ListAllCustomers()
+        {
+            var customerlist = new List<Customer>();
+
+
+
+
+        }
+
     }
 }

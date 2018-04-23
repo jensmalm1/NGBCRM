@@ -6,5 +6,6 @@ namespace NGB.FrontEnd
     public interface UserInterface
     {
         Customer GetNewCustomerFromUser();
+       
     }
 }

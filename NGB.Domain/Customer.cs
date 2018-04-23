@@ -11,6 +11,7 @@
         public PreferedContactType PreferedContactType { get; set; }
     }
 
+
     public enum PreferedContactType
     {
         Phone,

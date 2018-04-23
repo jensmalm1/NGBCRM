@@ -19,13 +19,15 @@ namespace NGB.FrontEnd
 
         public void DisplayCustomerList(List<Customer> customerList)
         {
-            Console.WriteLine("Kundlist");
-            Console.WriteLine("-------------------------------------------------------------------------");
-            Console.WriteLine($"{"Företag",-10}{"Kontaktperson", -10}{"Epost", -10}{"Telefonnummer", -10}");
+            Console.WriteLine("Kundlista");
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine($"{"Företag",-20}{"Kontaktperson", -20}{"Epost", -20}{"Telefonnummer", -20}");
             foreach (var customer in customerList)
             {
-                Console.WriteLine($"{customer.CompanyName,-10}{customer.FirstName+ " "+customer.Lastname, -10}{customer.Email, -10}{customer.PhoneNumber, -10}");
+                Console.WriteLine($"{customer.CompanyName,-20}{customer.FirstName+ " "+customer.Lastname, -20}{customer.Email, -20}{customer.PhoneNumber, -20}");
             }
+            Console.WriteLine("--------------------------------------------------------------------------");
+
         }
 
         public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()

@@ -32,5 +32,9 @@ namespace NGB.App
 
         }
 
+        public List<Customer> FindCustomersByCompanyName(string companyName)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

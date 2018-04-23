@@ -17,12 +17,20 @@ namespace NGB.FrontEnd
 
         }
 
+        public void DisplayCustomer(Customer customer)
+        {
+            var customers = new List<Customer>();
+            DisplayCustomerList(customers);
+        }
+
         public void DisplayCustomerList(List<Customer> customerList)
         {
-            Console.WriteLine("Kundlista");
+            Console.WriteLine("Kundlist");
+            Console.WriteLine("-------------------------------------------------------------------------");
+            Console.WriteLine($"{"Företag",-10}{"Kontaktperson", -10}{"Epost", -10}{"Telefonnummer", -10}");
             foreach (var customer in customerList)
             {
-                Console.WriteLine(@$"{customer.CompanyName,-10} {customer.FirstName, -10} {customer.Lastname} {customer.Email, -10} {customer.PhoneNumber, -10}");
+                Console.WriteLine($"{customer.CompanyName,-10}{customer.FirstName+ " "+customer.Lastname, -10}{customer.Email, -10}{customer.PhoneNumber, -10}");
             }
         }
 
@@ -42,6 +50,8 @@ namespace NGB.FrontEnd
         }
         public Customer GetNewCustomerFromUser()
         {
+            var validate = new Validation();
+
             var customer = new Customer();
             Console.Write("Skriv förnamn: ");
             customer.FirstName = Console.ReadLine();

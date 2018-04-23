@@ -39,10 +39,14 @@ namespace NGB.App
             throw new NotImplementedException();
         }
 
-        public void CreateNewContactEvent(Customer customer)
+        public void UpdateCustomer(Customer customer)
         {
-            var
+            using (var context = new BeanContext())
+            {
+                context.Customer.Update(customer);
+                context.SaveChanges();
 
+            }
         }
     }
 }

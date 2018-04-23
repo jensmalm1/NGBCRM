@@ -38,11 +38,15 @@ namespace NGB.App
 
         }
 
-        public Customer UpdateContactLogForCustomer()
+        public void UpdateContactLogForCustomer()
         {
+
+
            Customer customer= GetCustomerFromUser();
+           var contactEvent=userInterface.CreateContactEvent();
+            customer.ContactEvents.Add(contactEvent);
             //merge these later...
-            return customer;
+            customerHandler.UpdateCustomer(customer);
 
         }
     }

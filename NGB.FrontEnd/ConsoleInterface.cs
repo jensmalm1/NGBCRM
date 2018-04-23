@@ -77,5 +77,17 @@ namespace NGB.FrontEnd
             return (PreferedContactType)Enum.ToObject(typeof(PreferedContactType), answer);
 
         }
+
+
+        public ContactEvent CreateContactEvent()
+        {
+            var contactEvent = new ContactEvent();
+            Console.Write("Ange rubrik för kontakthändelse: ");
+            contactEvent.SummaryContent = Console.ReadLine();
+            Console.Write("Beskriv kontakten: ");
+            contactEvent.FullContent = Console.ReadLine();
+            contactEvent.DateTime = DateTime.Now;
+            return contactEvent;
+        }
     }
 }

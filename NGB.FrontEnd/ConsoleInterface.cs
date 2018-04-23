@@ -7,10 +7,10 @@ namespace NGB.FrontEnd
 {
     public class ConsoleInterface : UserInterface
     {
-        public ContactLog CreateNewContactLog()
+        public ContactEvent CreateNewContactEvent()
         {
 
-            var contactLog=new ContactLog();
+            var contactEvent=new ContactEvent();
             Console.WriteLine("Vilken kund vill du skapa kontaktlog för? Ange Efternamn");
             string customerName = Console.ReadLine();
             

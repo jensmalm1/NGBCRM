@@ -11,6 +11,7 @@ namespace NGB.FrontEnd
         string GetCompanyNameFromUser();
         void DisplayCustomerList(List<Customer> customerList);
         Customer SelectCustomer(List<Customer> customerList);
+        void DisplayCustomer(Customer customer);
     }
 
 }

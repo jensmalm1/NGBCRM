@@ -17,6 +17,7 @@ namespace NGB.FrontEnd
 
         }
 
+<<<<<<< HEAD
         public void DisplayCustomerList(List<Customer> customerList)
         {
             Console.WriteLine("Kundlista");
@@ -26,6 +27,27 @@ namespace NGB.FrontEnd
             }
         }
 
+=======
+        public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        public string GetCompanyNameFromUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void DisplayCustomerList(List<Customer> customerList)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Customer SelectCustomer(List<Customer> customerList)
+        {
+            throw new NotImplementedException();
+        }
+>>>>>>> 90f6af545db1c38f10827190f85044c1470815d6
         public Customer GetNewCustomerFromUser()
         {
             var customer = new Customer();

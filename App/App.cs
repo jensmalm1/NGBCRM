@@ -22,17 +22,19 @@ namespace NGB.App
 
         }
 
-        public void GetCustomerFromUser()
+        public Customer GetCustomerFromUser()
         {
-            var customerSearchMethod = userInterface.GetCustomerSearchMethodFromUser();
+            SearchableCustomerAttribute customerSearchMethod = userInterface.GetCustomerSearchAttributeFromUser();
             switch (customerSearchMethod)
             {
-                case CompanyName:
+                case SearchableCustomerAttribute.CompanyName:
                     var companyName = userInterface.GetCompanyNameFromUser();
                     var customerList = customerHandler.FindCustomersByCompanyName(companyName);
                     userInterface.DisplayCustomerList(customerList);
                     return userInterface.SelectCustomer(customerList);
             }
+
+            return null;
 
         }
     }

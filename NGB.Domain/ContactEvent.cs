@@ -4,10 +4,10 @@ using System.Text;
 
 namespace NGB.Domain
 {
-    class Event
+    public class ContactEvent
     {
         public int Id { get; set; }
-        public int ContactLogId { get; set; }
+        public int CustomerId{ get; set; }
         public DateTime DateTime { get; set; }
         public string FullContent { get; set; }
         public string SummaryContent { get; set; }

@@ -4,7 +4,7 @@ namespace NGB.Domain
 {
     public class Customer
     {
-        public ContactLog ContactLog { get; set; }
+        public List<ContactEvent> ContactEvents{ get; set; }
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string Lastname { get; set; }
@@ -20,5 +20,13 @@ namespace NGB.Domain
         Phone,
         Email,
         Letter
+    }
+
+
+    public enum SearchableCustomerAttribute
+    {
+        CompanyName,
+        FirstName,
+        LastName
     }
 }

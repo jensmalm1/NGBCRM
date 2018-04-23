@@ -16,10 +16,11 @@ namespace NGB.App
         {
             customerHandler = new CustomerHandler();
             userInterface = new ConsoleInterface();
-            
-            Customer customer = userInterface.GetNewCustomerFromUser();
-            customerHandler.AddNewCustomer(customer);
 
+            while (true)
+            {
+                SalespersonMenu();
+            }
         }
 
         public Customer GetCustomerFromUser()
@@ -36,6 +37,27 @@ namespace NGB.App
 
             return null;
 
+        }
+
+        public void SalespersonMenu()
+        {
+            userInterface.DisplaySalespersonMenu();
+            string menuSelection = userInterface.GetMenuSelection();
+            switch (menuSelection)
+            {
+                case "1":
+                    UpdateContactLogForCustomer();
+                    break;
+                case "2":
+                    userInterface.DisplayCustomer(GetCustomerFromUser());
+                    break;
+                case "3":
+                    userInterface.DisplayCustomerList(customerHandler.ListAllCustomers());
+                    break;
+                case "4":
+                    customerHandler.AddNewCustomer(userInterface.GetNewCustomerFromUser());
+                    break;
+            }
         }
     }
 }

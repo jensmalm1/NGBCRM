@@ -2,14 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 using NGB.Domain;
-using NGB.App;
 
 namespace NGB.FrontEnd
 {
     public class ConsoleInterface : UserInterface
     {
-        public CustomerHandler CustomerHandler { get; set; }
-
         public ContactLog CreateNewContactLog()
         {
 

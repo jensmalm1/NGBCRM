@@ -14,7 +14,7 @@ namespace NGB.Data
             {
                 context.Customer.Add(customer);
                 context.SaveChanges();
-            } 
+            }
         }
 
 
@@ -25,7 +25,7 @@ namespace NGB.Data
             using (var context = new BeanContext())
             {
                 customerList = context.Customer
-                    .Include(c=>c.ContactEvents)
+                    .Include(c => c.ContactEvents)
                     .ToList();
             }
             return customerList;
@@ -37,7 +37,7 @@ namespace NGB.Data
             var companyNameList = new List<Customer>();
             using (var context = new BeanContext())
             {
-                var customersByName = context.Customer.First(c => c.CompanyName == companyName);
+                var customersByName = context.Customer.Where(c => c.CompanyName == companyName);
                 foreach (var customer in customersByName)
                 {
                     companyNameList.Add(customer);
@@ -62,7 +62,7 @@ namespace NGB.Data
             var firstNameList = new List<Customer>();
             using (var context = new BeanContext())
             {
-                var customerByFirstName = context.Customer.First(c => c.FirstName == firstName);
+                var customerByFirstName = context.Customer.Where(c => c.FirstName == firstName);
                 foreach (var customer in customerByFirstName)
                 {
                     firstNameList.Add(customer);
@@ -76,7 +76,7 @@ namespace NGB.Data
             var lastNameList = new List<Customer>();
             using (var context = new BeanContext())
             {
-                var customerByLastName = context.Customer.First(c => c.LastName == lastName);
+                var customerByLastName = context.Customer.Where(c => c.Lastname == lastName);
                 foreach (var customer in customerByLastName)
                 {
                     lastNameList.Add(customer);

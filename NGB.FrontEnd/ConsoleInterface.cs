@@ -21,10 +21,12 @@ namespace NGB.FrontEnd
         {
             Console.WriteLine("Kundlista");
             Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine($"{"Företag",-20}{"Kontaktperson", -20}{"Epost", -20}{"Telefonnummer", -20}");
+            Console.WriteLine($"{"Nummer", -10}{"Företag",-20}{"Kontaktperson", -20}{"Epost", -20}{"Telefonnummer", -20}");
+            var count = 1;
             foreach (var customer in customerList)
             {
-                Console.WriteLine($"{customer.CompanyName,-20}{customer.FirstName+ " "+customer.Lastname, -20}{customer.Email, -20}{customer.PhoneNumber, -20}");
+                Console.WriteLine($"{count, -10}{customer.CompanyName,-20}{customer.FirstName+ " "+customer.Lastname, -20}{customer.Email, -20}{customer.PhoneNumber, -20}");
+                count++;
             }
             Console.WriteLine("--------------------------------------------------------------------------");
 
@@ -39,10 +41,17 @@ namespace NGB.FrontEnd
         {
             throw new NotImplementedException();
         }
+        public string GetFirstNameFromUser()
+        {
+            Console.WriteLine("Var vänlig att ange ett förnamn");
+            return Console.ReadLine();
+        }
 
         public Customer SelectCustomer(List<Customer> customerList)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Välj ett nummer");
+            var number = Int32.Parse(Console.ReadLine());
+            return customerList[number-1];
         }
         public Customer GetNewCustomerFromUser()
         {

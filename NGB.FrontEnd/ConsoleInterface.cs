@@ -13,7 +13,7 @@ namespace NGB.FrontEnd
 
         public void DisplayCustomer(Customer customer)
         {
-            var customers = new List<Customer>();
+            var customers = new List<Customer>{customer};
             DisplayCustomerList(customers);
         }
 
@@ -34,59 +34,45 @@ namespace NGB.FrontEnd
 
         public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()
         {
-            Console.WriteLine($"Välj söktyp\n1.Företagsnamn\n2.Förnamn\n3.Efternamn");
-            var number = int.Parse(Console.ReadLine());
+            while (true)
+            {
+                Console.WriteLine($"Sökbara uppgifter\n1.Företagsnamn\n2.Förnamn\n3.Efternamn");
+                var number = GetInput("Ange sökuppgift: ", StringType.MenuSelection);
             
-            SearchableCustomerAttribute attribute;
-            
-            if (number==1)
-            {
-                attribute = SearchableCustomerAttribute.CompanyName;
+                if (number == "1")
+                {
+                    return SearchableCustomerAttribute.CompanyName;
+                }
+                if (number == "2")
+                {
+                    return SearchableCustomerAttribute.FirstName;
+                }
+                if (number == "3")
+                {
+                    return SearchableCustomerAttribute.LastName;
+                }
             }
-            else if (number == 2)
-            {
-                attribute = SearchableCustomerAttribute.FirstName;
-            }
-            else if(number == 3)
-            {
-                attribute = SearchableCustomerAttribute.LastName;
-            }
-
-            return attribute;
         }
-
-        public string GetCompanyNameFromUser()
-        {
-            throw new NotImplementedException();
-        }
-        public string GetFirstNameFromUser()
-        {
-            Console.WriteLine("Var vänlig att ange ett förnamn");
-            return Console.ReadLine();
-        }
-
         public Customer SelectCustomer(List<Customer> customerList)
         {
-            Console.WriteLine("Välj ett nummer");
-            var number = Int32.Parse(Console.ReadLine());
-            return customerList[number-1];
+            var number = GetInput("Välj ett nummer: ",StringType.MenuSelection);
+            return customerList[Convert.ToInt32(number)-1];
             
         }
         public Customer GetNewCustomerFromUser()
         {
             var customer = new Customer();
-
-            customer.FirstName = ValidateInput("Skriv förnamn: ", StringType.PersonName);
-            customer.Lastname = ValidateInput("Skriv efternamn: ", StringType.PersonName);
-            customer.Email = ValidateInput("Skriv epostadress: ", StringType.Email);
-            customer.PhoneNumber = ValidateInput("Ange telefonnummer ", StringType.PhoneNumber);
-            customer.CompanyName = ValidateInput("Skriv in företagsnamn: ", StringType.CompanyName);
+            customer.FirstName = GetInput("Skriv förnamn: ", StringType.PersonName);
+            customer.Lastname = GetInput("Skriv efternamn: ", StringType.PersonName);
+            customer.Email = GetInput("Skriv epostadress: ", StringType.Email);
+            customer.PhoneNumber = GetInput("Ange telefonnummer: ", StringType.PhoneNumber);
+            customer.CompanyName = GetInput("Skriv in företagsnamn: ", StringType.CompanyName);
             
             customer.PreferedContactType = GetPreferredContactType();
-           return customer;
+            return customer;
         }
 
-        public string ValidateInput(string question, StringType stringType)
+        public string GetInput(string question, StringType stringType)
         {
             string inputLine;
             while (true)
@@ -95,13 +81,24 @@ namespace NGB.FrontEnd
                 inputLine = Console.ReadLine();
                 if (validation.Validate(stringType, inputLine))
                     break;
-                else
-                {
-                    Console.WriteLine("Fel format");
-                    continue;
-                }
+                Console.WriteLine("Fel format");
             }
             return inputLine;
+        }
+
+        public string GetInput(SearchableCustomerAttribute attribute)
+        {
+            switch (attribute)
+            {
+                case SearchableCustomerAttribute.CompanyName:
+                    return GetInput("Ange företagsnamn: ", StringType.CompanyName);
+                case SearchableCustomerAttribute.FirstName:
+                    return GetInput("Ange förnamn: ", StringType.PersonName);
+                case SearchableCustomerAttribute.LastName:
+                    return GetInput("Ange efternamn: ", StringType.PersonName);
+            }
+
+            return "";
         }
 
         private PreferedContactType GetPreferredContactType()
@@ -116,7 +113,7 @@ namespace NGB.FrontEnd
 
             for (int i = 0; i < values.Length; i++)
             {
-                Console.WriteLine($"({i+1} {contactNames[i]}");
+                Console.WriteLine($"({i+1}) {contactNames[i]}");
             }
             Console.Write("Ange önskad kontakttyp: ");
             int answer = Convert.ToInt32(Console.ReadLine()) - 1;
@@ -138,18 +135,20 @@ namespace NGB.FrontEnd
 
         private DateTime GetTimeFromUser()
         {
-            var dateInput = ValidateInput($"Ange datum (ÅÅÅÅ-MM-DD): ", StringType.Date);
-            var timeInput = ValidateInput($"Ange tid (TT:MM): ", StringType.Time);
+            var dateInput = GetInput($"Ange datum (ÅÅÅÅ-MM-DD): ", StringType.Date);
+            var timeInput = GetInput($"Ange tid (TT:MM): ", StringType.Time);
             return validation.CreateDateTime(dateInput, timeInput);
         }
 
         public void DisplaySalespersonMenu()
         {
+            Console.WriteLine("-----------------------------------------------------");
             Console.WriteLine("Säljmeny");
             Console.WriteLine("(1) Uppdatera kontaktlogg för kund.");
             Console.WriteLine("(2) Sök kund.");
             Console.WriteLine("(3) Visa alla kunder.");
             Console.WriteLine("(4) Lägg till ny kund.");
+            Console.WriteLine("-----------------------------------------------------");
         }
 
         public void DisplayText(string text)

@@ -8,15 +8,17 @@ namespace NGB.FrontEnd
     {
         Customer GetNewCustomerFromUser();
         SearchableCustomerAttribute GetCustomerSearchAttributeFromUser();
-        string GetCompanyNameFromUser();
+        string GetInput(string question, StringType type);
+        string GetInput(SearchableCustomerAttribute attribute);
         void DisplayCustomerList(List<Customer> customerList);
         Customer SelectCustomer(List<Customer> customerList);
         void DisplayCustomer(Customer customer);
         void DisplaySalespersonMenu();
         string GetMenuSelection();
         ContactEvent CreateContactEvent();
-        string GetFirstNameFromUser();
-      
+        void DisplayText(string text);
+
+
     }
 
 }

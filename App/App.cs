@@ -25,34 +25,39 @@ namespace NGB.App
 
         public Customer GetCustomerFromUser()
         {
-            SearchableCustomerAttribute customerSearchMethod = userInterface.GetCustomerSearchAttributeFromUser();
-            switch (customerSearchMethod)
+            var customerList = new List<Customer>();
+            while (true)
             {
-                case SearchableCustomerAttribute.CompanyName:
-                    var companyName = userInterface.GetCompanyNameFromUser();
-                    var customerList = customerHandler.FindCustomersByCompanyName(companyName);
-                    userInterface.DisplayCustomerList(customerList);
-                    return userInterface.SelectCustomer(customerList);
-                case SearchableCustomerAttribute.FirstName:
-                    var firstName = userInterface.GetFirstNameFromUser();
-                    var customerListByFirstName = customerHandler.FindCustomerByFirstName(firstName);
-                    userInterface.DisplayCustomerList(customerListByFirstName);
-                    return userInterface.SelectCustomer(customerListByFirstName);
-                case SearchableCustomerAttribute.LastName:
-                    var lastName = userInterface.GetLastNameFromUser();
-                    var customerListByLastName = customerHandler.FindCustomerByLastName(lastName);
-                    userInterface.DisplayCustomerList(customerListByLastName);
-                    return userInterface.SelectCustomer(customerListByLastName);
+                SearchableCustomerAttribute customerSearchMethod = userInterface.GetCustomerSearchAttributeFromUser();
+                var searchString = userInterface.GetInput(customerSearchMethod);
+                switch (customerSearchMethod)
+                {
+                    case SearchableCustomerAttribute.CompanyName:
+                        customerList = customerHandler.FindCustomersByCompanyName(searchString);
+                        break;
+                    case SearchableCustomerAttribute.FirstName:
+                        customerList = customerHandler.FindCustomerByFirstName(searchString);
+                        break;
+                    case SearchableCustomerAttribute.LastName:
+                        customerList = customerHandler.FindCustomerByLastName(searchString);
+                        break;
+                }
+
+                if (customerList.Count > 0)
+                    break;
+                Console.WriteLine("Hittade inga kunder. Försök igen! ");
             }
 
-            return null;
-
+            if (customerList.Count == 1)
+                return customerList[0];
+            userInterface.DisplayCustomerList(customerList);
+            return userInterface.SelectCustomer(customerList);
         }
 
         public void SalespersonMenu()
         {
             bool quit = true;
-            while (quit == true)
+            while (quit)
             {
                 userInterface.DisplaySalespersonMenu();
                 string menuSelection = userInterface.GetMenuSelection();

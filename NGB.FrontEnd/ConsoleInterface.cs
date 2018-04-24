@@ -21,10 +21,12 @@ namespace NGB.FrontEnd
         {
             Console.WriteLine("Kundlista");
             Console.WriteLine("--------------------------------------------------------------------------");
-            Console.WriteLine($"{"Företag",-20}{"Kontaktperson", -20}{"Epost", -20}{"Telefonnummer", -20}");
+            Console.WriteLine($"{"Nummer", -10}{"Företag",-20}{"Kontaktperson", -20}{"Epost", -20}{"Telefonnummer", -20}");
+            var count = 1;
             foreach (var customer in customerList)
             {
-                Console.WriteLine($"{customer.CompanyName,-20}{customer.FirstName+ " "+customer.Lastname, -20}{customer.Email, -20}{customer.PhoneNumber, -20}");
+                Console.WriteLine($"{count, -10}{customer.CompanyName,-20}{customer.FirstName+ " "+customer.Lastname, -20}{customer.Email, -20}{customer.PhoneNumber, -20}");
+                count++;
             }
             Console.WriteLine("--------------------------------------------------------------------------");
 
@@ -32,17 +34,43 @@ namespace NGB.FrontEnd
 
         public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Välj söktyp\n1.Företagsnamn\n2.Förnamn\n3.Efternamn");
+            var number = int.Parse(Console.ReadLine());
+            
+            SearchableCustomerAttribute attribute;
+            
+            if (number==1)
+            {
+                attribute = SearchableCustomerAttribute.CompanyName;
+            }
+            else if (number == 2)
+            {
+                attribute = SearchableCustomerAttribute.FirstName;
+            }
+            else if(number == 3)
+            {
+                attribute = SearchableCustomerAttribute.LastName;
+            }
+
+            return attribute;
         }
 
         public string GetCompanyNameFromUser()
         {
             throw new NotImplementedException();
         }
+        public string GetFirstNameFromUser()
+        {
+            Console.WriteLine("Var vänlig att ange ett förnamn");
+            return Console.ReadLine();
+        }
 
         public Customer SelectCustomer(List<Customer> customerList)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Välj ett nummer");
+            var number = Int32.Parse(Console.ReadLine());
+            return customerList[number-1];
+            
         }
         public Customer GetNewCustomerFromUser()
         {
@@ -55,7 +83,7 @@ namespace NGB.FrontEnd
             customer.CompanyName = ValidateInput("Skriv in företagsnamn: ", StringType.CompanyName);
             
             customer.PreferedContactType = GetPreferredContactType();
-            return customer;
+           return customer;
         }
 
         public string ValidateInput(string question, StringType stringType)
@@ -122,6 +150,11 @@ namespace NGB.FrontEnd
             Console.WriteLine("(2) Sök kund.");
             Console.WriteLine("(3) Visa alla kunder.");
             Console.WriteLine("(4) Lägg till ny kund.");
+        }
+
+        public void DisplayText(string text)
+        {
+            Console.WriteLine(text);
         }
 
         public string GetMenuSelection()

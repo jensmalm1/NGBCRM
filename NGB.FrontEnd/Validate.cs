@@ -118,7 +118,36 @@ namespace NGB.FrontEnd
                 return false;
             }
         }
+        public bool ValidateAttribute(StringType stringType, string stringToValidate)
+        {
+            var isValid = false;
+            switch (stringType)
+            {
+                case StringType.CompanyName:
+                    isValid = ValidateString(ValidateCompanyName, stringToValidate);
+                    break;
+                case StringType.PersonName:
+                    isValid = ValidateString(ValidatePersonName, stringToValidate);
+                    break;
+                case StringType.Email:
+                    isValid = ValidateString(ValidateEmail, stringToValidate);
+                    break;
+                case StringType.PhoneNumber:
+                    isValid = ValidateString(ValidatePhoneNumber, stringToValidate);
+                    break;
+                case StringType.MenuSelection:
+                    isValid = ValidateString(ValidateMenuSelection, stringToValidate);
+                    break;
+                default:
+                    break;
+            }
+            return isValid;
+        }
 
+        //return Regex.IsMatch(input, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-zåäöA-ZÅÄÖ]((\.(?!\.))|[-!#\$%&'\*\+\/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zåäöA-ZÅÄÖ])@))" +
+        //@"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-0-9a-zA-Z]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9][\-a-zA-Z0-9]{0,22}[a-zA-Z0-9]))$");
+
+<<<<<<< HEAD
             //return Regex.IsMatch(input, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-zåäöA-ZÅÄÖ]((\.(?!\.))|[-!#\$%&'\*\+\/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zåäöA-ZÅÄÖ])@))" +
             //@"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-0-9a-zA-Z]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9][\-a-zA-Z0-9]{0,22}[a-zA-Z0-9]))$");
 
@@ -154,5 +183,8 @@ namespace NGB.FrontEnd
                 throw new ArgumentException();
             }
         }
+=======
+>>>>>>> 785c7006112ecc76ae87fe6587a33f8ee44f25d3
     }
+
 }

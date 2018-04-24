@@ -34,7 +34,17 @@ namespace NGB.Data
 
         public List<Customer> FindCustomersByCompanyName(string companyName)
         {
-            throw new NotImplementedException();
+            var companyNameList = new List<Customer>();
+            using (var context = new BeanContext())
+            {
+                var customersByName = context.Customer.First(c => c.CompanyName == companyName);
+                foreach (var customer in customersByName)
+                {
+                    companyNameList.Add(customer);
+                }
+
+                return companyNameList;
+            }
         }
 
         public void UpdateCustomer(Customer customer)
@@ -44,6 +54,35 @@ namespace NGB.Data
                 context.Customer.Update(customer);
                 context.SaveChanges();
 
+            }
+        }
+
+        public List<Customer> FindCustomerByFirstName(string firstName)
+        {
+            var firstNameList = new List<Customer>();
+            using (var context = new BeanContext())
+            {
+                var customerByFirstName = context.Customer.First(c => c.FirstName == firstName);
+                foreach (var customer in customerByFirstName)
+                {
+                    firstNameList.Add(customer);
+                }
+
+                return firstNameList;
+            }
+        }
+        public List<Customer> FindCustomerByLastName(string lastName)
+        {
+            var lastNameList = new List<Customer>();
+            using (var context = new BeanContext())
+            {
+                var customerByLastName = context.Customer.First(c => c.LastName == lastName);
+                foreach (var customer in customerByLastName)
+                {
+                    lastNameList.Add(customer);
+                }
+
+                return lastNameList;
             }
         }
     }

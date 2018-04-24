@@ -5,6 +5,7 @@ using NGB.Data;
 using NGB.FrontEnd;
 using NGB.Domain;
 using Remotion.Linq.Clauses;
+using NGB.Data;
 
 namespace NGB.App
 {
@@ -32,6 +33,11 @@ namespace NGB.App
                 case SearchableCustomerAttribute.CompanyName:
                     var companyName = userInterface.GetCompanyNameFromUser();
                     var customerList = customerHandler.FindCustomersByCompanyName(companyName);
+                    userInterface.DisplayCustomerList(customerList);
+                    return userInterface.SelectCustomer(customerList);
+                case SearchableCustomerAttribute.FirstName:
+                    var firstName = userInterface.GetFirstNameFromUser();
+                    var customerList = customerHandler.FindCustomersByFirstName(firstName);
                     userInterface.DisplayCustomerList(customerList);
                     return userInterface.SelectCustomer(customerList);
             }

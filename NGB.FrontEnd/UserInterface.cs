@@ -17,7 +17,8 @@ namespace NGB.FrontEnd
         ContactEvent CreateContactEvent();
         string GetFirstNameFromUser();
 
-        
+
+        void DisplayText(string text);
     }
 
 }

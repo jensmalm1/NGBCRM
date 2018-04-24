@@ -34,7 +34,25 @@ namespace NGB.FrontEnd
 
         public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Välj söktyp\n1.Företagsnamn\n2.Förnamn\n3.Efternamn");
+            var number = int.Parse(Console.ReadLine());
+            
+            SearchableCustomerAttribute attribute;
+            
+            if (number==1)
+            {
+                attribute = SearchableCustomerAttribute.CompanyName;
+            }
+            else if (number == 2)
+            {
+                attribute = SearchableCustomerAttribute.FirstName;
+            }
+            else if(number == 3)
+            {
+                attribute = SearchableCustomerAttribute.LastName;
+            }
+
+            return attribute;
         }
 
         public string GetCompanyNameFromUser()
@@ -52,6 +70,7 @@ namespace NGB.FrontEnd
             Console.WriteLine("Välj ett nummer");
             var number = Int32.Parse(Console.ReadLine());
             return customerList[number-1];
+            
         }
         public Customer GetNewCustomerFromUser()
         {
@@ -64,7 +83,7 @@ namespace NGB.FrontEnd
             customer.CompanyName = ValidateInput("Skriv in företagsnamn: ", StringType.CompanyName);
             
             customer.PreferedContactType = GetPreferredContactType();
-            return customer;
+           return customer;
         }
 
         public string ValidateInput(string question, StringType stringType)

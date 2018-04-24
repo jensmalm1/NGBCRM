@@ -40,6 +40,11 @@ namespace NGB.App
                     var customerListByFirstName = customerHandler.FindCustomerByFirstName(firstName);
                     userInterface.DisplayCustomerList(customerListByFirstName);
                     return userInterface.SelectCustomer(customerListByFirstName);
+                case SearchableCustomerAttribute.LastName:
+                    var lastName = userInterface.GetLastNameFromUser();
+                    var customerListByLastName = customerHandler.FindCustomerByLastName(lastName);
+                    userInterface.DisplayCustomerList(customerListByLastName);
+                    return userInterface.SelectCustomer(customerListByLastName);
             }
 
             return null;

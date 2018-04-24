@@ -22,6 +22,7 @@ namespace NGB.FrontEnd
             Console.WriteLine("Kundlista");
             Console.WriteLine("--------------------------------------------------------------------------");
             Console.WriteLine($"{"Företag",-20}{"Kontaktperson", -20}{"Epost", -20}{"Telefonnummer", -20}");
+            Console.WriteLine("--------------------------------------------------------------------------");
             foreach (var customer in customerList)
             {
                 Console.WriteLine($"{customer.CompanyName,-20}{customer.FirstName+ " "+customer.Lastname, -20}{customer.Email, -20}{customer.PhoneNumber, -20}");

@@ -54,7 +54,6 @@ namespace NGB.FrontEnd
             customer.PhoneNumber = ValidateInput("Ange telefonnummer ", StringType.PhoneNumber);
             customer.CompanyName = ValidateInput("Skriv in företagsnamn: ", StringType.CompanyName);
             
-            customer.CompanyName = Console.ReadLine();
             customer.PreferedContactType = GetPreferredContactType();
             return customer;
         }

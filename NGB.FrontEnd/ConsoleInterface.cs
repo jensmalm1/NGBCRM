@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 using NGB.Domain;
 using NGB.FrontEnd;
@@ -15,6 +16,24 @@ namespace NGB.FrontEnd
         {
             var customers = new List<Customer>{customer};
             DisplayCustomerList(customers);
+        }
+
+        public void DisplayCustomerContactLog(Customer customer)
+        {
+            Console.WriteLine($"Kontaktlogg för {customer.CompanyName}");
+            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine($"{"Nummer",-10}{"Datum",-25}{"Rubrik",-40}");
+            var count = 1;
+            foreach (var contaktEvent in customer.ContactEvents)
+            {
+                Console.WriteLine($"{count,-10}{contaktEvent.DateTime,-25}{contaktEvent.SummaryContent,-40}");
+                Console.WriteLine();
+                Console.WriteLine($"{contaktEvent.FullContent}");
+                count++;
+            }
+            Console.WriteLine("--------------------------------------------------------------------------");
+
+
         }
 
         public void DisplayCustomerList(List<Customer> customerList)
@@ -147,7 +166,8 @@ namespace NGB.FrontEnd
             Console.WriteLine("(1) Uppdatera kontaktlogg för kund.");
             Console.WriteLine("(2) Sök kund.");
             Console.WriteLine("(3) Visa alla kunder.");
-            Console.WriteLine("(4) Lägg till ny kund.");
+            Console.WriteLine("(4) Visa kontaktloggen för en kund.");
+            Console.WriteLine("(5) Lägg till ny kund.");
             Console.WriteLine("-----------------------------------------------------");
         }
 

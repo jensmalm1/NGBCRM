@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using NGB.Data;
@@ -18,6 +19,7 @@ namespace NGB.App
         {
             customerHandler = new CustomerHandler();
             userInterface = new ConsoleInterface();
+
 
             SalespersonMenu();
 
@@ -73,6 +75,11 @@ namespace NGB.App
                         userInterface.DisplayCustomerList(customerHandler.ListAllCustomers());
                         break;
                     case "4":
+                        var customer = GetCustomerFromUser();
+                        userInterface.DisplayCustomerContactLog(customer);
+
+                        break;
+                    case "5":
                         customerHandler.AddNewCustomer(userInterface.GetNewCustomerFromUser());
                         break;
                     case "q":

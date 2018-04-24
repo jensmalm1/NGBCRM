@@ -19,6 +19,7 @@ namespace NGB.FrontEnd
         void DisplayText(string text);
 
 
+        void DisplayCustomerContactLog(Customer customer);
     }
 
 }

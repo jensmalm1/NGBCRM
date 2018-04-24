@@ -17,22 +17,23 @@ namespace NGB.App
             CustomerHandler customerHandler = new CustomerHandler();
             Customer customer = new Customer();
 
-            customer.FirstName = $"Arvid";
-            customer.Lastname = $"Bönan";
-            customer.Email = $"arvid@hem.se";
-            customer.PhoneNumber = $"031-78045000";
-            customer.CompanyName = $"Bean boy";
-            customer.PreferedContactType = PreferedContactType.Email;
-            customerHandler.AddNewCustomer(customer);
+            //customer.FirstName = $"Arvid";
+            //customer.Lastname = $"Bönan";
+            //customer.Email = $"arvid@hem.se";
+            //customer.PhoneNumber = $"031-78045000";
+            //customer.CompanyName = $"Bean boy";
+            //customer.PreferedContactType = PreferedContactType.Email;
+            //customerHandler.AddNewCustomer(customer);
 
-            customer.FirstName = $"Ida";
-            customer.Lastname = $"Coffie";
-            customer.Email = $"ida@hem.se";
-            customer.PhoneNumber = $"031-8744560";
-            customer.CompanyName = $"Coffie Home";
-            customer.PreferedContactType = PreferedContactType.Email;
-            AddTestEvents(customer);
-            customerHandler.AddNewCustomer(customer);
+            Customer customer2 = new Customer();
+            customer2.FirstName = $"Ida";
+            customer2.Lastname = $"Coffie";
+            customer2.Email = $"ida@hem.se";
+            customer2.PhoneNumber = $"031-8744560";
+            customer2.CompanyName = $"Coffie Home";
+            customer2.PreferedContactType = PreferedContactType.Email;
+            AddTestEvents(customer2);
+            customerHandler.AddNewCustomer(customer2);
 
             customer.FirstName = $"Jens";
             customer.Lastname = $"Kaffeson";
@@ -42,15 +43,16 @@ namespace NGB.App
             customer.PreferedContactType = PreferedContactType.Phone;
             customerHandler.AddNewCustomer(customer);
 
-            customer.FirstName = $"Anders";
-            customer.Lastname = $"Bsoon";
-            customer.Email = $"anders@hem.se";
-            customer.PhoneNumber = $"08-586 1501";
-            customer.CompanyName = $"Kaffe å Gott";
-            customer.PreferedContactType = PreferedContactType.Letter;
-            AddTestEvents(customer);
+            Customer customer3 = new Customer();
+            customer3.FirstName = $"Anders";
+            customer3.Lastname = $"Bsoon";
+            customer3.Email = $"anders@hem.se";
+            customer3.PhoneNumber = $"08-586 1501";
+            customer3.CompanyName = $"Kaffe å Gott";
+            customer3.PreferedContactType = PreferedContactType.Letter;
+            AddTestEvents(customer3);
 
-            customerHandler.AddNewCustomer(customer);
+            customerHandler.AddNewCustomer(customer3);
 
         }
 

@@ -37,10 +37,10 @@ namespace NGB.Data
             var companyNameList = new List<Customer>();
             using (var context = new BeanContext())
             {
-                var cName = context.Customer.First(c => c.CompanyName == companyName);
-                foreach (var name in companyNameList)
+                var customersByName = context.Customer.First(c => c.CompanyName == companyName);
+                foreach (var customer in customersByName)
                 {
-                    companyNameList.Add(name);
+                    companyNameList.Add(customer);
                 }
 
                 return companyNameList;
@@ -62,10 +62,10 @@ namespace NGB.Data
             var firstNameList = new List<Customer>();
             using (var context = new BeanContext())
             {
-                var fName = context.Customer.First(c => c.FirstName == firstName);
-                foreach (var name in firstNameList)
+                var customerByFirstName = context.Customer.First(c => c.FirstName == firstName);
+                foreach (var customer in customerByFirstName)
                 {
-                    firstNameList.Add(name);
+                    firstNameList.Add(customer);
                 }
 
                 return firstNameList;
@@ -76,13 +76,13 @@ namespace NGB.Data
             var lastNameList = new List<Customer>();
             using (var context = new BeanContext())
             {
-                var lName = context.Customer.First(c => c.LastName == lastName);
-                foreach (var name in lastNameList)
+                var customerByLastName = context.Customer.First(c => c.LastName == lastName);
+                foreach (var customer in customerByLastName)
                 {
-                    lastNameList.Add(name);
+                    lastNameList.Add(customer);
                 }
 
-                return flastNameList;
+                return lastNameList;
             }
         }
     }

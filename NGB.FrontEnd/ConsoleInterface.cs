@@ -46,21 +46,35 @@ namespace NGB.FrontEnd
         }
         public Customer GetNewCustomerFromUser()
         {
-            var validate = new Validation();
-
             var customer = new Customer();
-            Console.Write("Skriv förnamn: ");
-            customer.FirstName = Console.ReadLine();
-            Console.Write("Skriv efternamn: ");
-            customer.Lastname = Console.ReadLine();
-            Console.Write("Skriv epostadress: ");
-            customer.Email = Console.ReadLine();
-            Console.Write("Ange telefonnummer: ");
-            customer.PhoneNumber = Console.ReadLine();
-            Console.Write("Skriv in företagsnamn");
+
+            customer.FirstName = ValidateInput("Skriv förnamn: ", StringType.PersonName);
+            customer.Lastname = ValidateInput("Skriv efternamn: ", StringType.PersonName);
+            customer.Email = ValidateInput("Skriv epostadress: ", StringType.Email);
+            customer.PhoneNumber = ValidateInput("Ange telefonnummer ", StringType.PhoneNumber);
+            customer.CompanyName = ValidateInput("Skriv in företagsnamn: ", StringType.CompanyName);
+            
             customer.CompanyName = Console.ReadLine();
             customer.PreferedContactType = GetPreferredContactType();
             return customer;
+        }
+
+        public string ValidateInput(string question, StringType stringType)
+        {
+            string inputLine;
+            while (true)
+            {
+                Console.Write(question);
+                inputLine = Console.ReadLine();
+                if (validation.Validate(stringType, inputLine))
+                    break;
+                else
+                {
+                    Console.WriteLine("Fel format");
+                    continue;
+                }
+            }
+            return inputLine;
         }
 
         private PreferedContactType GetPreferredContactType()

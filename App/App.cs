@@ -5,6 +5,7 @@ using NGB.Data;
 using NGB.FrontEnd;
 using NGB.Domain;
 using Remotion.Linq.Clauses;
+using NGB.Data;
 
 namespace NGB.App
 {

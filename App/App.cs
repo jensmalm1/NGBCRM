@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NGB.Data;
 using NGB.FrontEnd;
 using NGB.Domain;
 using Remotion.Linq.Clauses;

@@ -16,11 +16,11 @@ namespace NGB.Test
         private string goodEmail7 = "adnan.felix.theresa@gmail.com";
         private string goodEmail8 = "tybalt_capulet@verona.it";
 
-        private string badEmail1 = "anna@gmail-";
+        private string badEmail1 = "anna@gmail-()";
         private string badEmail2 = "@gmail.com";
         private string badEmail3 = "lisa@.com";
-        private string badEmail4 = "nisse.@asdf.com";
-        private string badEmail5 = "felixia@-gmail.com";
+        private string badEmail4 = "nisse @asdf.com";
+        private string badEmail5 = "felixia@@gmail.com";
         private string badEmail6 = ".@epost.nu";
         private string badEmail7 = "mohammed..alhadim@aljazira.uae";
         private string badEmail8 = "elin.gmail.com";

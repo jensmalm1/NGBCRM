@@ -4,7 +4,7 @@ namespace NGB.Domain
 {
     public class Customer
     {
-        public List<ContactEvent> ContactEvents { get; set; }
+        public List<ContactEvent> ContactEvents { get; set; } = new List<ContactEvent>();
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string Lastname { get; set; }

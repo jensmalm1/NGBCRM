@@ -69,7 +69,7 @@ namespace NGB.App
 
         public void UpdateContactLogForCustomer()
         {
-            Customer customer= GetCustomerFromUser();
+            Customer customer = GetCustomerFromUser();
             customer.ContactEvents.Add(userInterface.CreateContactEvent());
             customerHandler.UpdateCustomer(customer);
         }

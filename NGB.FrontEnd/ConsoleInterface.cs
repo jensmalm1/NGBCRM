@@ -102,10 +102,17 @@ namespace NGB.FrontEnd
             var contactEvent = new ContactEvent();
             Console.Write("Ange rubrik för kontakthändelse: ");
             contactEvent.SummaryContent = Console.ReadLine();
-            Console.Write("Beskriv kontakten: ");
+            Console.Write("Beskriv kontakthändelsen: ");
             contactEvent.FullContent = Console.ReadLine();
-            contactEvent.DateTime = DateTime.Now;
+            contactEvent.DateTime = GetTimeFromUser();
             return contactEvent;
+        }
+
+        private DateTime GetTimeFromUser()
+        {
+            var dateInput = ValidateInput($"Ange datum (ÅÅÅÅ-MM-DD): ", StringType.Date);
+            var timeInput = ValidateInput($"Ange tid (TT:MM): ", StringType.Time);
+            return validation.CreateDateTime(dateInput, timeInput);
         }
 
         public void DisplaySalespersonMenu()
@@ -129,3 +136,4 @@ namespace NGB.FrontEnd
         }
     }
 }
+

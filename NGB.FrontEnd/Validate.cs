@@ -11,7 +11,9 @@ namespace NGB.FrontEnd
         PersonName,
         Email,
         PhoneNumber,
-        MenuSelection
+        MenuSelection,
+        Date,
+        Time
     }
     public class Validation
     {
@@ -35,10 +37,43 @@ namespace NGB.FrontEnd
                 case StringType.MenuSelection:
                     isValid = ValidateString(ValidateMenuSelection, stringToValidate);
                     break;
+                case StringType.Date:
+                    isValid = ValidateString(ValidateDate, stringToValidate);
+                    break;
+                case StringType.Time:
+                    isValid = ValidateString(ValidateTime, stringToValidate);
+                    break;
                 default:
                     break;
             }
             return isValid;
+        }
+
+        private bool ValidateDate(string input)
+        {
+            try
+            {
+                CreateDateTime(input, null);
+            }
+            catch (ArgumentException e)
+            {
+                return false;
+            }
+
+            return true;
+        }
+        private bool ValidateTime(string input)
+        {
+            try
+            {
+                CreateDateTime(null, input);
+            }
+            catch (ArgumentException e)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         private bool ValidateMenuSelection(string input)
@@ -86,6 +121,38 @@ namespace NGB.FrontEnd
 
             //return Regex.IsMatch(input, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-zåäöA-ZÅÄÖ]((\.(?!\.))|[-!#\$%&'\*\+\/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zåäöA-ZÅÄÖ])@))" +
             //@"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-0-9a-zA-Z]*[0-9a-zA-Z]*\.)+[a-zA-Z0-9][\-a-zA-Z0-9]{0,22}[a-zA-Z0-9]))$");
-        
+
+        public DateTime CreateDateTime(string dateInput, string timeInput)
+        {
+            int year = DateTime.Now.Year;
+            int month = DateTime.Now.Month;
+            int day = DateTime.Now.Day;
+            int hour = DateTime.Now.Hour;
+            int minute = DateTime.Now.Minute;
+
+            try
+            {
+                if (dateInput != null)
+                {
+                    var dateArray = dateInput.Split('-');
+                    year = Convert.ToInt32(dateArray[0]);
+                    month = Convert.ToInt32(dateArray[1]);
+                    day = Convert.ToInt32(dateArray[2]);
+                }
+
+                if (timeInput != null)
+                {
+                    var timeArray = timeInput.Split(':');
+                    hour = Convert.ToInt32(timeArray[0]);
+                    minute = Convert.ToInt32(timeArray[1]);
+                }
+
+                return new DateTime(year, month, day, hour, minute, 0);
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
+        }
     }
 }

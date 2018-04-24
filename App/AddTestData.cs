@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
 using NGB.Domain;
 using NGB.Data;
 
@@ -29,6 +31,7 @@ namespace NGB.App
             customer.PhoneNumber = $"031-8744560";
             customer.CompanyName = $"Coffie Home";
             customer.PreferedContactType = PreferedContactType.Email;
+            AddTestEvents(customer);
             customerHandler.AddNewCustomer(customer);
 
             customer.FirstName = $"Jens";
@@ -45,7 +48,32 @@ namespace NGB.App
             customer.PhoneNumber = $"08-586 1501";
             customer.CompanyName = $"Kaffe å Gott";
             customer.PreferedContactType = PreferedContactType.Letter;
+            AddTestEvents(customer);
+
             customerHandler.AddNewCustomer(customer);
+
+        }
+
+        public void AddTestEvents(Customer customer)
+        {
+            ContactEvent contactEvent = new ContactEvent();
+
+            if (customer.FirstName == "Anders")
+            {
+                contactEvent.DateTime = DateTime.Now;
+                contactEvent.SummaryContent = "Frågade om nästa leverans";
+                contactEvent.FullContent = "Kunden frågade när nästa leverans är. Kaffet är nästan slut";
+                customer.ContactEvents.Add(contactEvent);
+
+            }
+            else if (customer.FirstName == "Ida")
+            {
+                contactEvent.DateTime = DateTime.Now;
+                contactEvent.SummaryContent = "Frågade om order";
+                contactEvent.FullContent = "Kunden väntar på sin order och undrar när den kommer";
+                customer.ContactEvents.Add(contactEvent);
+
+            }
 
         }
     }

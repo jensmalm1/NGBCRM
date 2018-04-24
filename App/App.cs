@@ -19,10 +19,8 @@ namespace NGB.App
             customerHandler = new CustomerHandler();
             userInterface = new ConsoleInterface();
 
-            while (true)
-            {
-                SalespersonMenu();
-            }
+            SalespersonMenu();
+
         }
 
         public Customer GetCustomerFromUser()
@@ -53,23 +51,37 @@ namespace NGB.App
 
         public void SalespersonMenu()
         {
-            userInterface.DisplaySalespersonMenu();
-            string menuSelection = userInterface.GetMenuSelection();
-            switch (menuSelection)
+            bool quit = true;
+            while (quit == true)
             {
-                case "1":
-                    UpdateContactLogForCustomer();
-                    break;
-                case "2":
-                    userInterface.DisplayCustomer(GetCustomerFromUser());
-                    break;
-                case "3":
-                    userInterface.DisplayCustomerList(customerHandler.ListAllCustomers());
-                    break;
-                case "4":
-                    customerHandler.AddNewCustomer(userInterface.GetNewCustomerFromUser());
-                    break;
+                userInterface.DisplaySalespersonMenu();
+                string menuSelection = userInterface.GetMenuSelection();
+                switch (menuSelection)
+                {
+                    case "1":
+                        UpdateContactLogForCustomer();
+                        break;
+                    case "2":
+                        userInterface.DisplayCustomer(GetCustomerFromUser());
+                        break;
+                    case "3":
+                        userInterface.DisplayCustomerList(customerHandler.ListAllCustomers());
+                        break;
+                    case "4":
+                        customerHandler.AddNewCustomer(userInterface.GetNewCustomerFromUser());
+                        break;
+                    case "q":
+                    case "Q":
+                        quit = false;
+                        break;
+
+                    default:
+                        userInterface.DisplayText("Ogiltigt val.");
+                        break;
+                }
+
             }
+            
         }
 
         public void UpdateContactLogForCustomer()

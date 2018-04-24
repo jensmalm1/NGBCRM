@@ -145,6 +145,11 @@ namespace NGB.FrontEnd
             Console.WriteLine("(4) Lägg till ny kund.");
         }
 
+        public void DisplayText(string text)
+        {
+            Console.WriteLine(text);
+        }
+
         public string GetMenuSelection()
         {
             while (true)

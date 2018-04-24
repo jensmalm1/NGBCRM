@@ -17,6 +17,7 @@ namespace NGB.Domain
 
     public enum PreferedContactType
     {
+        //Todo: in english when choosing how to be contacted, rest is in swedish
         Phone,
         Email,
         Letter

@@ -4,6 +4,7 @@ using System.Text;
 using NGB.FrontEnd;
 using NGB.Domain;
 using Remotion.Linq.Clauses;
+using NGB.Data;
 
 namespace NGB.App
 {

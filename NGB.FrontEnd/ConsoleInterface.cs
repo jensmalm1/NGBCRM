@@ -50,7 +50,7 @@ namespace NGB.FrontEnd
             Console.WriteLine("--------------------------------------------------------------------------");
 
         }
-
+        //todo: Add so you can show list of companies, makes it easier to search.
         public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()
         {
             while (true)
@@ -86,7 +86,9 @@ namespace NGB.FrontEnd
             customer.Email = GetInput("Skriv epostadress: ", StringType.Email);
             customer.PhoneNumber = GetInput("Ange telefonnummer: ", StringType.PhoneNumber);
             customer.CompanyName = GetInput("Skriv in företagsnamn: ", StringType.CompanyName);
-            
+
+
+            //todo: Preferred :) 
             customer.PreferedContactType = GetPreferredContactType();
             return customer;
         }

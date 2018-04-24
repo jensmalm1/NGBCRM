@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 using NGB.Data;
 using NGB.FrontEnd;
@@ -10,6 +11,7 @@ using NGB.Data;
 
 namespace NGB.App
 {
+    //todo:Maybe clear console once in a while or use different colors to make information more clear
     class App
     {
         private CustomerHandler customerHandler;
@@ -55,7 +57,7 @@ namespace NGB.App
             userInterface.DisplayCustomerList(customerList);
             return userInterface.SelectCustomer(customerList);
         }
-
+        //Todo:Salesperson is 2 words => SalesPerson (or change word alltogether)
         public void SalespersonMenu()
         {
             bool quit = true;
@@ -65,9 +67,11 @@ namespace NGB.App
                 string menuSelection = userInterface.GetMenuSelection();
                 switch (menuSelection)
                 {
+                    //todo: Create a "return to main menu" option?
                     case "1":
                         UpdateContactLogForCustomer();
                         break;
+                    //todo: svårt kanske men att kunna söka på endast några bokstäver, typ  söka "and" skulle ge träff "andersson" osv...
                     case "2":
                         userInterface.DisplayCustomer(GetCustomerFromUser());
                         break;
@@ -86,9 +90,10 @@ namespace NGB.App
                     case "Q":
                         quit = false;
                         break;
-
+                        //todo: can use cw instead of DisplayText since is it only used once.
                     default:
                         userInterface.DisplayText("Ogiltigt val.");
+                       // Console.WriteLine("Ogiltigt val.");
                         break;
                 }
 

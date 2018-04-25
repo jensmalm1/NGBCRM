@@ -10,6 +10,8 @@ namespace NGB.Data
     {
         public DbSet<Customer> Customer { get; set; }
         public DbSet<BeanTypePreferences> BeanTypePreferences { get; set; }
+        public DbSet<BeanTypes> BeanTypes { get; set; }
+
 
 
 

@@ -12,6 +12,36 @@ namespace NGB.App
     {
         Customer customer = new Customer();
 
+        public void AddTestBeanTypes()
+        {
+            CustomerHandler customerHandler = new CustomerHandler();
+
+            BeanTypes beanTypes = new BeanTypes();
+            beanTypes.Name = "Ekologist";
+            customerHandler.AddNewBeanType(beanTypes);
+
+            BeanTypes beanTypes1 = new BeanTypes();
+            beanTypes1.Name = "Afrika";
+            customerHandler.AddNewBeanType(beanTypes1);
+
+            BeanTypes beanTypes2 = new BeanTypes();
+            beanTypes2.Name = "Sydamerika";
+            customerHandler.AddNewBeanType(beanTypes2);
+
+            BeanTypes beanTypes3 = new BeanTypes();
+            beanTypes3.Name = "Lättrost";
+            customerHandler.AddNewBeanType(beanTypes3);
+
+            BeanTypes beanTypes4 = new BeanTypes();
+            beanTypes4.Name = "Mellanrost";
+            customerHandler.AddNewBeanType(beanTypes4);
+
+            BeanTypes beanTypes5 = new BeanTypes();
+            beanTypes5.Name = "Mörkrost";
+            customerHandler.AddNewBeanType(beanTypes5);
+
+        }
+
         public void AddTestCustomer()
         {
             CustomerHandler customerHandler = new CustomerHandler();

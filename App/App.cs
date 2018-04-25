@@ -66,7 +66,7 @@ namespace NGB.App
                 {
                     case "1":
                         Customer customerToUpdate = GetCustomerFromUser();
-                        customerToUpdate.ContactEvents.Add(userInterface.CreateContactEvent());
+                        customerToUpdate.ContactEvents.Add(userInterface.CreateContactEvent(customerToUpdate));
                         customerHandler.UpdateCustomer(customerToUpdate);
                         break;
                     case "2":

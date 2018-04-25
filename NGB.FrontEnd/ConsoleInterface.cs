@@ -146,15 +146,19 @@ namespace NGB.FrontEnd
         }
 
 
-        public ContactEvent CreateContactEvent()
+        public ContactEvent CreateContactEvent(Customer customer)
         {
+            Console.WriteLine();
             var contactEvent = new ContactEvent();
+            Console.WriteLine($"Kund: {customer.CompanyName}");
             Console.Write("Ange rubrik för kontakthändelse: ");
             contactEvent.SummaryContent = Console.ReadLine();
             Console.Write("Beskriv kontakthändelsen: ");
             contactEvent.FullContent = Console.ReadLine();
             contactEvent.DateTime = GetTimeFromUser();
+            Console.WriteLine();
             return contactEvent;
+            
         }
 
         private DateTime GetTimeFromUser()
@@ -193,9 +197,10 @@ namespace NGB.FrontEnd
                 
                 Console.Write("Gör menyval (Q för att avbryta): ");
                 var input = Console.ReadLine();
+                Console.Clear();
                 if (validation.Validate(StringType.MenuSelection, input))
                     return input;
-               Console.Clear();
+               
                
             }
             

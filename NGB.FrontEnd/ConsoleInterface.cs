@@ -32,8 +32,6 @@ namespace NGB.FrontEnd
                 count++;
             }
             Console.WriteLine("--------------------------------------------------------------------------");
-
-
         }
 
         public void DisplayCustomerList(List<Customer> customerList)
@@ -54,7 +52,6 @@ namespace NGB.FrontEnd
         {
             while (true)
             {
-                
                 Console.WriteLine($"Sökbara uppgifter\n1.Företagsnamn\n2.Förnamn\n3.Efternamn");
                 
                 var number = GetInput("Ange sökuppgift: ", StringType.MenuSelection);
@@ -168,11 +165,16 @@ namespace NGB.FrontEnd
             return validation.CreateDateTime(dateInput, timeInput);
         }
 
-        public void DisplaySalesPersonMenu()
+        private void DisplayLogo()
         {
             Console.ForegroundColor = ConsoleColor.DarkRed;
             Console.WriteLine("      _   __          __     ______                           __  _  \r\n     / | / /__  _  __/ /_   / ____/__  ____  ___  _________ _/ /_(_)___  ____ \r\n    /  |/ / _ \\| |/_/ __/  / / __/ _ \\/ __ \\/ _ \\/ ___/ __ `/ __/ / __ \\/ __ \\\r\n   / /|  /  __/>  </ /_   / /_/ /  __/ / / /  __/ /  / /_/ / /_/ / /_/ / / / /\r\n  /_/ |_/\\___/_/|_|\\__/   \\____/\\___/_/ /_/\\___/_/   \\__,_/\\__/_/\\____/_/ /_/ \r\n                                                                              \r\n                            ____  _   _                 \r\n                           / __ )(_)_(_)___  ____ _____ \r\n                          / __  / __ \\/ __ \\/ __ `/ __ \\\r\n                         / /_/ / /_/ / / / / /_/ / / / /\r\n                        /_____/\\____/_/ /_/\\__,_/_/ /_/ \r\n                                                        ");
             Console.ResetColor();
+        }
+
+        public void DisplaySalesPersonMenu()
+        {
+            DisplayLogo();
             Console.WriteLine("-----------------------------------------------------");
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Säljmeny");
@@ -183,18 +185,14 @@ namespace NGB.FrontEnd
             Console.WriteLine("(4) Visa kontaktloggen för en kund.");
             Console.WriteLine("(5) Lägg till ny kund.");
             Console.WriteLine("(6) Visa favoritböna för kund");
-
             Console.WriteLine("-----------------------------------------------------");
-           
-           
         }
 
 
         public string GetMenuSelection()
         {
             while (true)
-            {
-                
+            { 
                 Console.Write("Gör menyval (Q för att avbryta): ");
                 var input = Console.ReadLine();
 
@@ -203,11 +201,7 @@ namespace NGB.FrontEnd
                     Console.Clear();
                     return input;
                 }
-                    
-               
-               
-            }
-            
+            } 
         }
 
         public void DisplayInvalidChoice()

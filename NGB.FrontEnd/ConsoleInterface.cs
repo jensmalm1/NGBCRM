@@ -50,7 +50,6 @@ namespace NGB.FrontEnd
             Console.WriteLine("--------------------------------------------------------------------------");
 
         }
-        //todo: Add so you can show list of companies, makes it easier to search.
         public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()
         {
             while (true)
@@ -87,9 +86,7 @@ namespace NGB.FrontEnd
             customer.PhoneNumber = GetInput("Ange telefonnummer: ", StringType.PhoneNumber);
             customer.CompanyName = GetInput("Skriv in företagsnamn: ", StringType.CompanyName);
 
-
-            //todo: Preferred :) 
-            customer.PreferedContactType = GetPreferredContactType();
+            customer.PreferredContactType = GetPreferredContactType();
             return customer;
         }
 
@@ -99,7 +96,7 @@ namespace NGB.FrontEnd
             while (true)
             {
                 Console.Write(question);
-                inputLine = Console.ReadLine();
+                inputLine = Console.ReadLine().Trim();
                 if (validation.Validate(stringType, inputLine))
                     break;
                 Console.WriteLine("Fel format");
@@ -161,7 +158,7 @@ namespace NGB.FrontEnd
             return validation.CreateDateTime(dateInput, timeInput);
         }
 
-        public void DisplaySalespersonMenu()
+        public void DisplaySalesPersonMenu()
         {
             Console.WriteLine("-----------------------------------------------------");
             Console.WriteLine("Säljmeny");
@@ -173,10 +170,6 @@ namespace NGB.FrontEnd
             Console.WriteLine("-----------------------------------------------------");
         }
 
-        public void DisplayText(string text)
-        {
-            Console.WriteLine(text);
-        }
 
         public string GetMenuSelection()
         {
@@ -187,6 +180,11 @@ namespace NGB.FrontEnd
                 if (validation.Validate(StringType.MenuSelection, input))
                     return input;
             }
+        }
+
+        public void DisplayInvalidChoice()
+        {
+            Console.WriteLine("Ogiltigt val.");
         }
     }
 }

@@ -13,13 +13,12 @@ namespace NGB.FrontEnd
         void DisplayCustomerList(List<Customer> customerList);
         Customer SelectCustomer(List<Customer> customerList);
         void DisplayCustomer(Customer customer);
-        void DisplaySalespersonMenu();
+        void DisplaySalesPersonMenu();
         string GetMenuSelection();
         ContactEvent CreateContactEvent();
-        void DisplayText(string text);
-
 
         void DisplayCustomerContactLog(Customer customer);
+        void DisplayInvalidChoice();
     }
 
 }

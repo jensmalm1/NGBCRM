@@ -5,19 +5,27 @@ using System.Collections.Generic;
 
 namespace NGB.Data.Migrations
 {
-    public partial class contactlog : Migration
+    public partial class updatedCustomer : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "Surname",
-                table: "Customer",
-                newName: "Lastname");
-
-            migrationBuilder.AddColumn<string>(
-                name: "CompanyName",
-                table: "Customer",
-                nullable: true);
+            migrationBuilder.CreateTable(
+                name: "Customer",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    CompanyName = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
+                    FirstName = table.Column<string>(nullable: true),
+                    Lastname = table.Column<string>(nullable: true),
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    PreferredContactType = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customer", x => x.Id);
+                });
 
             migrationBuilder.CreateTable(
                 name: "ContactEvent",
@@ -52,14 +60,8 @@ namespace NGB.Data.Migrations
             migrationBuilder.DropTable(
                 name: "ContactEvent");
 
-            migrationBuilder.DropColumn(
-                name: "CompanyName",
-                table: "Customer");
-
-            migrationBuilder.RenameColumn(
-                name: "Lastname",
-                table: "Customer",
-                newName: "Surname");
+            migrationBuilder.DropTable(
+                name: "Customer");
         }
     }
 }

@@ -21,9 +21,7 @@ namespace NGB.App
             customerHandler = new CustomerHandler();
             userInterface = new ConsoleInterface();
 
-
             SalesPersonMenu();
-
         }
 
         public Customer GetCustomerFromUser()
@@ -59,16 +57,17 @@ namespace NGB.App
 
         public void SalesPersonMenu()
         {
-            bool quit = true;
-            while (quit)
+            bool continueInMenu = true;
+            while (continueInMenu)
             {
                 userInterface.DisplaySalesPersonMenu();
                 string menuSelection = userInterface.GetMenuSelection();
                 switch (menuSelection)
                 {
-                    
                     case "1":
-                        UpdateContactLogForCustomer();
+                        Customer customerToUpdate = GetCustomerFromUser();
+                        customerToUpdate.ContactEvents.Add(userInterface.CreateContactEvent());
+                        customerHandler.UpdateCustomer(customerToUpdate);
                         break;
                     case "2":
                         userInterface.DisplayCustomer(GetCustomerFromUser());
@@ -85,7 +84,7 @@ namespace NGB.App
                         break;
                     case "q":
                     case "Q":
-                        quit = false;
+                        continueInMenu = false;
                         break;
                     default:
                         userInterface.DisplayInvalidChoice();
@@ -98,9 +97,7 @@ namespace NGB.App
 
         public void UpdateContactLogForCustomer()
         {
-            Customer customer = GetCustomerFromUser();
-            customer.ContactEvents.Add(userInterface.CreateContactEvent());
-            customerHandler.UpdateCustomer(customer);
+
         }
     }
 }

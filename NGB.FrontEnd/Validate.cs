@@ -20,31 +20,36 @@ namespace NGB.FrontEnd
         public bool Validate(StringType stringType, string stringToValidate)
         {
             var isValid = false;
-            switch (stringType)
+            if (CheckIfStringIsNullOrEmpty(stringToValidate))
+                return false;
+            else
             {
-                case StringType.CompanyName:
-                    isValid = ValidateString(ValidateCompanyName, stringToValidate);
-                    break;
-                case StringType.PersonName:
-                    isValid = ValidateString(ValidatePersonName, stringToValidate);
-                    break;
-                case StringType.Email:
-                    isValid = ValidateString(ValidateEmail, stringToValidate);
-                    break;
-                case StringType.PhoneNumber:
-                    isValid = ValidateString(ValidatePhoneNumber, stringToValidate);
-                    break;
-                case StringType.MenuSelection:
-                    isValid = ValidateString(ValidateMenuSelection, stringToValidate);
-                    break;
-                case StringType.Date:
-                    isValid = ValidateString(ValidateDate, stringToValidate);
-                    break;
-                case StringType.Time:
-                    isValid = ValidateString(ValidateTime, stringToValidate);
-                    break;
-                default:
-                    break;
+                switch (stringType)
+                {
+                    case StringType.CompanyName:
+                        isValid = ValidateCompanyName(stringToValidate);
+                        break;
+                    case StringType.PersonName:
+                        isValid = ValidatePersonName (stringToValidate);
+                        break;
+                    case StringType.Email:
+                        isValid = ValidateEmail (stringToValidate);
+                        break;
+                    case StringType.PhoneNumber:
+                        isValid = ValidatePhoneNumber (stringToValidate);
+                        break;
+                    case StringType.MenuSelection:
+                        isValid = ValidateMenuSelection (stringToValidate);
+                        break;
+                    case StringType.Date:
+                        isValid = ValidateDate (stringToValidate);
+                        break;
+                    case StringType.Time:
+                        isValid = ValidateTime (stringToValidate);
+                        break;
+                    default:
+                        break;
+                }
             }
             return isValid;
         }
@@ -82,13 +87,22 @@ namespace NGB.FrontEnd
         }
 
         //Todo: Rename method to CheckIfStringIsNullOrEmpty.
-        private bool ValidateString(Func<string, bool> validate, string stringToValidate)
+
+        private bool CheckIfStringIsNullOrEmpty(string stringToValidate)
         {
             if (String.IsNullOrEmpty(stringToValidate))
-                return false;
+                return true;
             else
-                return validate(stringToValidate);
+                return false;
         }
+
+        //private bool ValidateString(Func<string, bool> validate, string stringToValidate)
+        //{
+        //    if (String.IsNullOrEmpty(stringToValidate))
+        //        return false;
+        //    else
+        //        return validate(stringToValidate);
+        //}
   
 
         private bool ValidateCompanyName(string input)
@@ -118,31 +132,32 @@ namespace NGB.FrontEnd
                 return false;
             }
         }
-        public bool ValidateAttribute(StringType stringType, string stringToValidate)
-        {
-            var isValid = false;
-            switch (stringType)
-            {
-                case StringType.CompanyName:
-                    isValid = ValidateString(ValidateCompanyName, stringToValidate);
-                    break;
-                case StringType.PersonName:
-                    isValid = ValidateString(ValidatePersonName, stringToValidate);
-                    break;
-                case StringType.Email:
-                    isValid = ValidateString(ValidateEmail, stringToValidate);
-                    break;
-                case StringType.PhoneNumber:
-                    isValid = ValidateString(ValidatePhoneNumber, stringToValidate);
-                    break;
-                case StringType.MenuSelection:
-                    isValid = ValidateString(ValidateMenuSelection, stringToValidate);
-                    break;
-                default:
-                    break;
-            }
-            return isValid;
-        }
+
+        //public bool ValidateAttribute(StringType stringType, string stringToValidate)
+        //{
+        //    var isValid = false;
+        //    switch (stringType)
+        //    {
+        //        case StringType.CompanyName:
+        //            isValid = ValidateString(ValidateCompanyName, stringToValidate);
+        //            break;
+        //        case StringType.PersonName:
+        //            isValid = ValidateString(ValidatePersonName, stringToValidate);
+        //            break;
+        //        case StringType.Email:
+        //            isValid = ValidateString(ValidateEmail, stringToValidate);
+        //            break;
+        //        case StringType.PhoneNumber:
+        //            isValid = ValidateString(ValidatePhoneNumber, stringToValidate);
+        //            break;
+        //        case StringType.MenuSelection:
+        //            isValid = ValidateString(ValidateMenuSelection, stringToValidate);
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //    return isValid;
+        //}
 
         public DateTime CreateDateTime(string dateInput, string timeInput)
         {

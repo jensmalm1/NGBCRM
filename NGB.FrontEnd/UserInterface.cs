@@ -19,6 +19,7 @@ namespace NGB.FrontEnd
 
         void DisplayCustomerContactLog(Customer customer);
         void DisplayInvalidChoice();
+        void DisplayPreferredBeanTypes(Customer customer);
     }
 
 }

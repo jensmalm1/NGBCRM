@@ -167,6 +167,8 @@ namespace NGB.FrontEnd
             Console.WriteLine("(3) Visa alla kunder.");
             Console.WriteLine("(4) Visa kontaktloggen för en kund.");
             Console.WriteLine("(5) Lägg till ny kund.");
+            Console.WriteLine("(6) Visa favoritböna för kund");
+
             Console.WriteLine("-----------------------------------------------------");
         }
 
@@ -185,6 +187,19 @@ namespace NGB.FrontEnd
         public void DisplayInvalidChoice()
         {
             Console.WriteLine("Ogiltigt val.");
+        }
+
+        public void DisplayPreferredBeanTypes(Customer customer)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"Kund: {customer.CompanyName}");
+            Console.WriteLine("Föredrar följande bönor: ");
+            foreach (var BeanTypePreference in customer.BeanTypePreferenceses)
+            {
+                Console.WriteLine(BeanTypePreference.BeanTypes.Name);
+            }
+
+            Console.WriteLine();
         }
     }
 }

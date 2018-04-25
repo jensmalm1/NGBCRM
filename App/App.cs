@@ -82,6 +82,10 @@ namespace NGB.App
                     case "5":
                         customerHandler.AddNewCustomer(userInterface.GetNewCustomerFromUser());
                         break;
+                    case "6":
+                        userInterface.DisplayPreferredBeanTypes(GetCustomerFromUser());
+                        break;
+
                     case "q":
                     case "Q":
                         continueInMenu = false;

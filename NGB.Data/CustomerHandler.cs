@@ -35,6 +35,8 @@ namespace NGB.Data
             {
                 customerList = context.Customer
                     .Include(c => c.ContactEvents)
+                    .Include(b => b.BeanTypePreferenceses)
+                    .ThenInclude(b => b.BeanTypes)
                     .ToList();
             }
             return customerList;
@@ -46,7 +48,11 @@ namespace NGB.Data
             var companyNameList = new List<Customer>();
             using (var context = new BeanContext())
             {
-                var customersByName = context.Customer.Where(c => c.CompanyName.Contains(companyName)).Include(c => c.ContactEvents);
+                var customersByName = context.Customer
+                    .Where(c => c.CompanyName.Contains(companyName))
+                    .Include(b => b.BeanTypePreferenceses)
+                    .ThenInclude(b => b.BeanTypes)
+                    .Include(c => c.ContactEvents);
                 foreach (var customer in customersByName)
                 {
                     companyNameList.Add(customer);
@@ -71,7 +77,11 @@ namespace NGB.Data
             var firstNameList = new List<Customer>();
             using (var context = new BeanContext())
             {
-                var customerByFirstName = context.Customer.Where(c => c.FirstName.Contains(firstName)).Include(c => c.ContactEvents);
+                var customerByFirstName = context.Customer
+                    .Where(c => c.FirstName.Contains(firstName))
+                    .Include(b => b.BeanTypePreferenceses)
+                    .ThenInclude(b => b.BeanTypes)
+                    .Include(c => c.ContactEvents);
                 foreach (var customer in customerByFirstName)
                 {
                     firstNameList.Add(customer);
@@ -85,7 +95,11 @@ namespace NGB.Data
             var lastNameList = new List<Customer>();
             using (var context = new BeanContext())
             {
-                var customerByLastName = context.Customer.Where(c => c.Lastname.Contains(lastName)).Include(c => c.ContactEvents);
+                var customerByLastName = context.Customer
+                    .Where(c => c.Lastname.Contains(lastName))
+                    .Include(b => b.BeanTypePreferenceses)
+                    .ThenInclude(b => b.BeanTypes)
+                    .Include(c => c.ContactEvents);
                 foreach (var customer in customerByLastName)
                 {
                     lastNameList.Add(customer);

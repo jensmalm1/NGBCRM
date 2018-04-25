@@ -48,13 +48,15 @@ namespace NGB.FrontEnd
                 count++;
             }
             Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------");
-
+            
         }
         public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()
         {
             while (true)
             {
+                
                 Console.WriteLine($"Sökbara uppgifter\n1.Företagsnamn\n2.Förnamn\n3.Efternamn");
+                
                 var number = GetInput("Ange sökuppgift: ", StringType.MenuSelection);
             
                 if (number == "1")
@@ -73,7 +75,10 @@ namespace NGB.FrontEnd
         }
         public Customer SelectCustomer(List<Customer> customerList)
         {
+            Console.ForegroundColor = ConsoleColor.White;
             var number = GetInput("Välj ett nummer: ",StringType.MenuSelection);
+            Console.ResetColor();
+
             return customerList[Convert.ToInt32(number)-1];
             
         }
@@ -100,7 +105,7 @@ namespace NGB.FrontEnd
                 if (validation.Validate(stringType, inputLine))
                     break;
                 Console.WriteLine("Fel format");
-            }
+            }Console.Clear();
             return inputLine;
         }
 
@@ -114,8 +119,9 @@ namespace NGB.FrontEnd
                     return GetInput("Ange förnamn: ", StringType.PersonName);
                 case SearchableCustomerAttribute.LastName:
                     return GetInput("Ange efternamn: ", StringType.PersonName);
+                
             }
-
+            
             return "";
         }
 
@@ -160,14 +166,21 @@ namespace NGB.FrontEnd
 
         public void DisplaySalesPersonMenu()
         {
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.WriteLine("      _   __          __     ______                           __  _  \r\n     / | / /__  _  __/ /_   / ____/__  ____  ___  _________ _/ /_(_)___  ____ \r\n    /  |/ / _ \\| |/_/ __/  / / __/ _ \\/ __ \\/ _ \\/ ___/ __ `/ __/ / __ \\/ __ \\\r\n   / /|  /  __/>  </ /_   / /_/ /  __/ / / /  __/ /  / /_/ / /_/ / /_/ / / / /\r\n  /_/ |_/\\___/_/|_|\\__/   \\____/\\___/_/ /_/\\___/_/   \\__,_/\\__/_/\\____/_/ /_/ \r\n                                                                              \r\n                            ____  _   _                 \r\n                           / __ )(_)_(_)___  ____ _____ \r\n                          / __  / __ \\/ __ \\/ __ `/ __ \\\r\n                         / /_/ / /_/ / / / / /_/ / / / /\r\n                        /_____/\\____/_/ /_/\\__,_/_/ /_/ \r\n                                                        ");
+            Console.ResetColor();
             Console.WriteLine("-----------------------------------------------------");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Säljmeny");
+            Console.ResetColor();
             Console.WriteLine("(1) Uppdatera kontaktlogg för kund.");
             Console.WriteLine("(2) Sök kund.");
             Console.WriteLine("(3) Visa alla kunder.");
             Console.WriteLine("(4) Visa kontaktloggen för en kund.");
             Console.WriteLine("(5) Lägg till ny kund.");
             Console.WriteLine("-----------------------------------------------------");
+           
+           
         }
 
 
@@ -175,11 +188,15 @@ namespace NGB.FrontEnd
         {
             while (true)
             {
+                
                 Console.Write("Gör menyval (Q för att avbryta): ");
                 var input = Console.ReadLine();
                 if (validation.Validate(StringType.MenuSelection, input))
                     return input;
+               Console.Clear();
+               
             }
+            
         }
 
         public void DisplayInvalidChoice()

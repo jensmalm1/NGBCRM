@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 using NGB.Data;
 using NGB.FrontEnd;
@@ -20,9 +21,7 @@ namespace NGB.App
             customerHandler = new CustomerHandler();
             userInterface = new ConsoleInterface();
 
-
-            SalespersonMenu();
-
+            SalesPersonMenu();
         }
 
         public Customer GetCustomerFromUser()
@@ -56,17 +55,19 @@ namespace NGB.App
             return userInterface.SelectCustomer(customerList);
         }
 
-        public void SalespersonMenu()
+        public void SalesPersonMenu()
         {
-            bool quit = true;
-            while (quit)
+            bool continueInMenu = true;
+            while (continueInMenu)
             {
-                userInterface.DisplaySalespersonMenu();
+                userInterface.DisplaySalesPersonMenu();
                 string menuSelection = userInterface.GetMenuSelection();
                 switch (menuSelection)
                 {
                     case "1":
-                        UpdateContactLogForCustomer();
+                        Customer customerToUpdate = GetCustomerFromUser();
+                        customerToUpdate.ContactEvents.Add(userInterface.CreateContactEvent());
+                        customerHandler.UpdateCustomer(customerToUpdate);
                         break;
                     case "2":
                         userInterface.DisplayCustomer(GetCustomerFromUser());
@@ -77,18 +78,16 @@ namespace NGB.App
                     case "4":
                         var customer = GetCustomerFromUser();
                         userInterface.DisplayCustomerContactLog(customer);
-
                         break;
                     case "5":
                         customerHandler.AddNewCustomer(userInterface.GetNewCustomerFromUser());
                         break;
                     case "q":
                     case "Q":
-                        quit = false;
+                        continueInMenu = false;
                         break;
-
                     default:
-                        userInterface.DisplayText("Ogiltigt val.");
+                        userInterface.DisplayInvalidChoice();
                         break;
                 }
 
@@ -98,9 +97,7 @@ namespace NGB.App
 
         public void UpdateContactLogForCustomer()
         {
-            Customer customer = GetCustomerFromUser();
-            customer.ContactEvents.Add(userInterface.CreateContactEvent());
-            customerHandler.UpdateCustomer(customer);
+
         }
     }
 }

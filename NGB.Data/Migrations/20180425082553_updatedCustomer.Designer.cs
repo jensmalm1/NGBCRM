@@ -12,8 +12,8 @@ using System;
 namespace NGB.Data.Migrations
 {
     [DbContext(typeof(BeanContext))]
-    [Migration("20180423135816_contactlog")]
-    partial class contactlog
+    [Migration("20180425082553_updatedCustomer")]
+    partial class updatedCustomer
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,7 +57,7 @@ namespace NGB.Data.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.Property<int>("PreferedContactType");
+                    b.Property<int>("PreferredContactType");
 
                     b.HasKey("Id");
 

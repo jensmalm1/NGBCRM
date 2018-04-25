@@ -11,11 +11,11 @@ namespace NGB.Domain
         public string PhoneNumber { get; set; }
         public string CompanyName { get; set; }
         public string Email { get; set; }
-        public PreferedContactType PreferedContactType { get; set; }
+        public PreferredContactType PreferredContactType { get; set; }
     }
 
 
-    public enum PreferedContactType
+    public enum PreferredContactType
     {
         Phone,
         Email,

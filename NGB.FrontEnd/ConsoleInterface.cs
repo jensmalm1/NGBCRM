@@ -50,7 +50,6 @@ namespace NGB.FrontEnd
             Console.WriteLine("--------------------------------------------------------------------------");
 
         }
-
         public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()
         {
             while (true)
@@ -86,8 +85,8 @@ namespace NGB.FrontEnd
             customer.Email = GetInput("Skriv epostadress: ", StringType.Email);
             customer.PhoneNumber = GetInput("Ange telefonnummer: ", StringType.PhoneNumber);
             customer.CompanyName = GetInput("Skriv in företagsnamn: ", StringType.CompanyName);
-            
-            customer.PreferedContactType = GetPreferredContactType();
+
+            customer.PreferredContactType = GetPreferredContactType();
             return customer;
         }
 
@@ -97,7 +96,7 @@ namespace NGB.FrontEnd
             while (true)
             {
                 Console.Write(question);
-                inputLine = Console.ReadLine();
+                inputLine = Console.ReadLine().Trim();
                 if (validation.Validate(stringType, inputLine))
                     break;
                 Console.WriteLine("Fel format");
@@ -120,14 +119,14 @@ namespace NGB.FrontEnd
             return "";
         }
 
-        private PreferedContactType GetPreferredContactType()
+        private PreferredContactType GetPreferredContactType()
         {
             Console.WriteLine("Kontakttyp");
-            var values = Enum.GetValues(typeof(PreferedContactType));
+            var values = Enum.GetValues(typeof(PreferredContactType));
             string[] contactNames = new string[values.Length];
             for (int i = 0; i < contactNames.Length; i++)
             {
-                contactNames[i] = ((PreferedContactType)i).ToString();
+                contactNames[i] = ((PreferredContactType)i).ToString();
             }
 
             for (int i = 0; i < values.Length; i++)
@@ -136,7 +135,7 @@ namespace NGB.FrontEnd
             }
             Console.Write("Ange önskad kontakttyp: ");
             int answer = Convert.ToInt32(Console.ReadLine()) - 1;
-            return (PreferedContactType)Enum.ToObject(typeof(PreferedContactType), answer);
+            return (PreferredContactType)Enum.ToObject(typeof(PreferredContactType), answer);
 
         }
 
@@ -159,7 +158,7 @@ namespace NGB.FrontEnd
             return validation.CreateDateTime(dateInput, timeInput);
         }
 
-        public void DisplaySalespersonMenu()
+        public void DisplaySalesPersonMenu()
         {
             Console.WriteLine("-----------------------------------------------------");
             Console.WriteLine("Säljmeny");
@@ -171,10 +170,6 @@ namespace NGB.FrontEnd
             Console.WriteLine("-----------------------------------------------------");
         }
 
-        public void DisplayText(string text)
-        {
-            Console.WriteLine(text);
-        }
 
         public string GetMenuSelection()
         {
@@ -185,6 +180,11 @@ namespace NGB.FrontEnd
                 if (validation.Validate(StringType.MenuSelection, input))
                     return input;
             }
+        }
+
+        public void DisplayInvalidChoice()
+        {
+            Console.WriteLine("Ogiltigt val.");
         }
     }
 }

@@ -7,6 +7,8 @@ namespace NGB.Test
     [TestFixture]
     public class ValidationTests
     {
+        private Validation v = new Validation();
+
         private string goodEmail1 = "anna@gmail.com";
         private string goodEmail2 = "lisa.svensson@gmail.com";
         private string goodEmail3 = "nisse79@hotmail.com";
@@ -25,12 +27,19 @@ namespace NGB.Test
         private string badEmail7 = "mohammed. .alhadim@aljazira.uae";
         private string badEmail8 = "elin.gmail.com";
 
+        private string goodName1 = "Arvid";
+        private string goodName2 = "Anna-Lena";
+        private string goodName3 = "Marie Louise";
+
+        private string badName1 = "tuffisen37";
+        private string badName2 = "Nils \"Nisse\"";
+        private string badName3 = "Eva    Lisa";
+
 
 
         [Test]
         public void GoodEmailValidationTest()
         {
-            var v = new Validation();
             Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail1)));
             Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail2)));
             Assert.That(true, Is.EqualTo(v.Validate(StringType.Email, goodEmail3)));
@@ -53,6 +62,22 @@ namespace NGB.Test
             Assert.That(false, Is.EqualTo(v.Validate(StringType.Email, badEmail6)));
             Assert.That(false, Is.EqualTo(v.Validate(StringType.Email, badEmail7)));
             Assert.That(false, Is.EqualTo(v.Validate(StringType.Email, badEmail8)));
+        }
+
+        [Test]
+        public void GoodNameValidation()
+        {
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.PersonName, goodName1)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.PersonName, goodName1)));
+            Assert.That(true, Is.EqualTo(v.Validate(StringType.PersonName, goodName1)));
+        }
+
+        [Test]
+        public void BadNameValidation()
+        {
+            Assert.That(false, Is.EqualTo(v.Validate(StringType.PersonName, badName1)));
+            Assert.That(false, Is.EqualTo(v.Validate(StringType.PersonName, badName1)));
+            Assert.That(false, Is.EqualTo(v.Validate(StringType.PersonName, badName1)));
         }
     }
 }

@@ -15,15 +15,15 @@ namespace NGB.App
         public void AddTestCustomer()
         {
             CustomerHandler customerHandler = new CustomerHandler();
-            Customer customer = new Customer();
+            Customer customer4 = new Customer();
 
-            //customer.FirstName = $"Arvid";
-            //customer.Lastname = $"Bönan";
-            //customer.Email = $"arvid@hem.se";
-            //customer.PhoneNumber = $"031-78045000";
-            //customer.CompanyName = $"Bean boy";
-            //customer.PreferredContactType = PreferredContactType.Email;
-            //customerHandler.AddNewCustomer(customer);
+            customer4.FirstName = $"Arvid";
+            customer4.Lastname = $"Bönan";
+            customer4.Email = $"arvid@hem.se";
+            customer4.PhoneNumber = $"031-78045000";
+            customer4.CompanyName = $"Bean boy";
+            customer4.PreferredContactType = PreferredContactType.Email;
+            customerHandler.AddNewCustomer(customer4);
 
             Customer customer2 = new Customer();
             customer2.FirstName = $"Ida";

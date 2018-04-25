@@ -22,7 +22,7 @@ namespace NGB.Test
         private string badEmail4 = "nisse @asdf.com";
         private string badEmail5 = "felixia@@gmail.com";
         private string badEmail6 = ".@epost.nu";
-        private string badEmail7 = "mohammed..alhadim@aljazira.uae";
+        private string badEmail7 = "mohammed. .alhadim@aljazira.uae";
         private string badEmail8 = "elin.gmail.com";
 
 

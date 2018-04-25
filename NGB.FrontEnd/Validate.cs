@@ -96,15 +96,6 @@ namespace NGB.FrontEnd
                 return false;
         }
 
-        //private bool ValidateString(Func<string, bool> validate, string stringToValidate)
-        //{
-        //    if (String.IsNullOrEmpty(stringToValidate))
-        //        return false;
-        //    else
-        //        return validate(stringToValidate);
-        //}
-  
-
         private bool ValidateCompanyName(string input)
         {
                 return true;
@@ -120,44 +111,6 @@ namespace NGB.FrontEnd
         {
             return Regex.IsMatch(input, @"^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$");
         }
-        private bool ValidateEmail(string input)
-        {
-            try
-            {
-                var addr = new System.Net.Mail.MailAddress(input);
-                return addr.Address == input;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        //public bool ValidateAttribute(StringType stringType, string stringToValidate)
-        //{
-        //    var isValid = false;
-        //    switch (stringType)
-        //    {
-        //        case StringType.CompanyName:
-        //            isValid = ValidateString(ValidateCompanyName, stringToValidate);
-        //            break;
-        //        case StringType.PersonName:
-        //            isValid = ValidateString(ValidatePersonName, stringToValidate);
-        //            break;
-        //        case StringType.Email:
-        //            isValid = ValidateString(ValidateEmail, stringToValidate);
-        //            break;
-        //        case StringType.PhoneNumber:
-        //            isValid = ValidateString(ValidatePhoneNumber, stringToValidate);
-        //            break;
-        //        case StringType.MenuSelection:
-        //            isValid = ValidateString(ValidateMenuSelection, stringToValidate);
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //    return isValid;
-        //}
 
         public DateTime CreateDateTime(string dateInput, string timeInput)
         {
@@ -189,6 +142,19 @@ namespace NGB.FrontEnd
             catch
             {
                 throw new ArgumentException();
+            }
+        }
+
+        private bool ValidateEmail(string input)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(input);
+                return addr.Address == input;
+            }
+            catch
+            {
+                return false;
             }
         }
         //return Regex.IsMatch(input, @"^(?("")("".+?(?<!\\)""@)|(([0-9a-zåäöA-ZÅÄÖ]((\.(?!\.))|[-!#\$%&'\*\+\/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zåäöA-ZÅÄÖ])@))" +

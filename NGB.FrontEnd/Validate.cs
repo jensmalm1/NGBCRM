@@ -81,7 +81,7 @@ namespace NGB.FrontEnd
             return Regex.IsMatch(input, @"(^\d+$|[Qq])");
         }
 
-        //Todo: Rename method to CheckIfStringIsNullOrEmpty
+        //Todo: Rename method to CheckIfStringIsNullOrEmpty.
         private bool ValidateString(Func<string, bool> validate, string stringToValidate)
         {
             if (String.IsNullOrEmpty(stringToValidate))
@@ -95,7 +95,7 @@ namespace NGB.FrontEnd
         {
                 return true;
         }
-        //ToDo: Might want to .Trim input Name-since space in beginning or end will fail validation
+
         private bool ValidatePersonName(string input)
         {
            return Regex.IsMatch(input, @"^[a-zA-ZåäöÅÄÖ]+(([',. -][a-zA-ZåäöÅÄÖ ])?[a-zA-ZåäöÅÄÖ]*)*$");

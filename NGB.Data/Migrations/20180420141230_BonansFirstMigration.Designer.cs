@@ -33,7 +33,7 @@ namespace NGB.Data.Migrations
 
                     b.Property<string>("PhoneNumber");
 
-                    b.Property<int>("PreferedContactType");
+                    b.Property<int>("PreferredContactType");
 
                     b.Property<string>("Surname");
 

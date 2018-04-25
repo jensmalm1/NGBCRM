@@ -119,14 +119,14 @@ namespace NGB.FrontEnd
             return "";
         }
 
-        private PreferedContactType GetPreferredContactType()
+        private PreferredContactType GetPreferredContactType()
         {
             Console.WriteLine("Kontakttyp");
-            var values = Enum.GetValues(typeof(PreferedContactType));
+            var values = Enum.GetValues(typeof(PreferredContactType));
             string[] contactNames = new string[values.Length];
             for (int i = 0; i < contactNames.Length; i++)
             {
-                contactNames[i] = ((PreferedContactType)i).ToString();
+                contactNames[i] = ((PreferredContactType)i).ToString();
             }
 
             for (int i = 0; i < values.Length; i++)
@@ -135,7 +135,7 @@ namespace NGB.FrontEnd
             }
             Console.Write("Ange önskad kontakttyp: ");
             int answer = Convert.ToInt32(Console.ReadLine()) - 1;
-            return (PreferedContactType)Enum.ToObject(typeof(PreferedContactType), answer);
+            return (PreferredContactType)Enum.ToObject(typeof(PreferredContactType), answer);
 
         }
 

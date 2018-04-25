@@ -39,7 +39,7 @@ namespace NGB.FrontEnd
         public void DisplayCustomerList(List<Customer> customerList)
         {
             Console.WriteLine("Kundlista");
-            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------");
             Console.WriteLine($"{"Nummer", -10}{"Företag",-20}{"Kontaktperson", -20}{"Epost", -20}{"Telefonnummer", -20}{"Antalet händelser med kund",-20}");
             var count = 1;
             foreach (var customer in customerList)
@@ -47,7 +47,7 @@ namespace NGB.FrontEnd
                 Console.WriteLine($"{count, -10}{customer.CompanyName,-20}{customer.FirstName+ " "+customer.Lastname, -20}{customer.Email, -20}{customer.PhoneNumber, -20}{customer.ContactEvents.Count}");
                 count++;
             }
-            Console.WriteLine("--------------------------------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------------------------------------------------------------------------------");
 
         }
         public SearchableCustomerAttribute GetCustomerSearchAttributeFromUser()

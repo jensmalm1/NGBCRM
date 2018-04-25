@@ -17,6 +17,15 @@ namespace NGB.Data
             }
         }
 
+        public void AddNewBeanType(BeanTypes beanTypes)
+        {
+            using (var context = new BeanContext())
+            {
+                context.BeanTypes.Add(beanTypes);
+                context.SaveChanges();
+            }
+        }
+
 
         public List<Customer> ListAllCustomers()
         {

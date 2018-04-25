@@ -197,9 +197,13 @@ namespace NGB.FrontEnd
                 
                 Console.Write("Gör menyval (Q för att avbryta): ");
                 var input = Console.ReadLine();
-                Console.Clear();
+
                 if (validation.Validate(StringType.MenuSelection, input))
+                {
+                    Console.Clear();
                     return input;
+                }
+                    
                
                
             }
